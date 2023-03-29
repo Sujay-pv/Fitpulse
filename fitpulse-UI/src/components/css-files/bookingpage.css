@@ -1,0 +1,106 @@
+
+#booking-container{
+    color: white;
+    background-color:#0b0a0a;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+#booking-container-inside{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #000000;
+    border-radius: 8px;
+   
+}
+
+#gymbookingheading{
+    color: teal;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#bookingname{
+    width: 320px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+}
+#bookingemail{
+    width: 320px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+}
+#bookingnumber{
+    width: 320px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+.booking-section{
+    margin: 30px;
+}
+
+#gymlocation{
+    margin-left: 40px;
+    width: 170px;
+    height: 25px;
+    border-radius: 20px;
+}
+#membershipType{
+    margin-left: 10px;
+    width:170px;
+    height: 25px;
+    border-radius: 20px;
+}
+#startDate{
+    margin-left:60px;
+    width: 170px;
+    height: 25px;
+    border-radius: 20px;
+
+}
+
+
+#gymbookingbtnsec{
+    text-align: center;
+    margin: 20px;
+}
+
+#gymbookingbtn {
+   /* background-color: #026f6f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;*/
+    background-color:	#008080 ;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #gymbookingbtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #0e7b87;
+  }
+  
