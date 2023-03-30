@@ -1,0 +1,104 @@
+/* -------------------------    Header Start   ------------------------- */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; 
+  }
+
+  .navbar
+  {
+    width:100%;
+    height: 75px;
+    line-height: 2.5;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0px 100px;
+    position: fixed;
+    background-color: #000000;
+    /*background-image: linear-gradient(#000000,#c29f47);*/
+  }
+
+  .navbar .nav-title p
+  {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 2.5;
+    margin-left: 12px;
+    float: left;
+    color: rgb(150, 140, 119);
+    letter-spacing: 1.0px;
+    cursor: pointer;
+  }
+
+  .navbar ul
+  {
+    float: right;
+    margin-top: 15px;
+  }
+
+  .navbar li
+  {
+    display: inline-block;
+    list-style: none;
+  }
+
+  .navbar li a
+  {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0px 30px;
+    color: #93826E;
+    text-decoration: none;
+  }
+
+  .navbar li a:hover
+  {
+    color:white;
+    transition: all 0.4s ease 0s;   
+  }
+
+  .navbar a
+  {
+    font-size: 18px;
+    float: right;
+    text-transform: uppercase;
+    padding: 0px 30px;
+    color: white;
+    text-decoration: none;
+  }
+
+  .navbar button
+  {
+    float: right;
+    font-size: medium;
+    margin-top: 4px;
+    height: px;
+    display: inline-block;
+    background: black;
+    color: #93826E;
+    border: 2px solid transparent;
+    padding: 7px 20px;
+    border-radius: 30px;
+    transition: .4s;
+  }
+
+  .navbar button:hover
+  {
+    background: transparent;
+    border: 2px solid #93826E;
+    cursor: pointer;
+  }
+
+ .logo-image img
+  {
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 12px;
+    height: auto;
+    left: 0px;
+    width: 75px;
+  }
+
+  /* -------------------------    Header End     ------------------------- */

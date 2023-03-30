@@ -1,0 +1,42 @@
+.partners-container 
+{
+  /*transform: translate(-50%, -50%);*/
+  border: 1px solid #ccc;
+  padding: 30px;
+  max-width: 840px;
+  width:100%px;
+  text-align: center;
+  color: black;
+  background-color: rgb(248, 242, 242);
+  border-radius: 100px;
+  margin-left: 345px;
+  margin-bottom: 138px;
+}
+body
+{
+  background-color: rgb(0, 0, 0);
+}
+.partners-title
+{
+  color: black;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.partners-images
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
+
+.partners-images img {
+  width: 150px;
+  height: auto;
+  margin: 0 20px;
+}
