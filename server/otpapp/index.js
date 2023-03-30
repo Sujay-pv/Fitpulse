@@ -12,7 +12,7 @@ app.use(cors())
 
 
 const authToken = '38c2b334a856647b277bb3c453c96db9'; // Your Auth Token from www.twilio.com/console
-const accountSid = 'AC196157eb740751fafd18c37842b2377d'; 
+const accountSid = 'AC196157eb740751fafd18c37842b2377d'; //deatils of twilio
 
 const client = require('twilio')(accountSid, authToken);
 
