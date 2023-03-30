@@ -2,13 +2,11 @@
 #booking-container{
     color: white;
     background-color:#0b0a0a;
-    border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
 }
 
 #booking-container-inside{
@@ -23,7 +21,7 @@
 
 #gymbookingheading{
     color: teal;
-    padding-top: 10px;
+    padding-top: 8px;
     text-align: center;
 }
 
@@ -32,22 +30,25 @@
     height: 25px;
     border-radius: 5px;
     border: none;
+    padding: 4px;
 }
 #bookingemail{
     width: 320px;
     height: 25px;
     border-radius: 5px;
     border: none;
+    padding: 4px;
 }
 #bookingnumber{
     width: 320px;
     height: 25px;
     border-radius: 5px;
     border: none;
+    padding: 4px;
 }
 
 .booking-section{
-    margin: 30px;
+    margin: 25px;
 }
 
 #gymlocation{
@@ -77,18 +78,6 @@
 }
 
 #gymbookingbtn {
-   /* background-color: #026f6f;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;*/
     background-color:	#008080 ;
     color: #fff;
     padding: 5px 10px;

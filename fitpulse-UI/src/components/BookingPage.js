@@ -22,6 +22,17 @@ const BookingPage = () => {
     });
   };
 
+
+  let dateObj = new Date();
+  let month = String(dateObj.getMonth() + 1).padStart(2, '0');
+  let day = String(dateObj.getDate()).padStart(2, '0');
+  let year = dateObj.getFullYear();
+  let today = day + '/' + month + '/' + year;
+  today = today.toString();
+  today = today.slice(6, 10)+'-'+today.slice(3,5)+'-'+today.slice(0,2);
+
+
+
   return (
     <div id="booking-container">
       <div id="booking-container-inside">
@@ -88,6 +99,7 @@ const BookingPage = () => {
         <input
           type="date"
           id="startDate"
+          min={today}
           value={startDate}
           onChange={(event) => setStartDate(event.target.value)}
         />
@@ -95,7 +107,6 @@ const BookingPage = () => {
       <div id="gymbookingbtnsec">
       <button id = "gymbookingbtn" type="submit">Book Now</button>
       </div>
-      
     </form>
     </div>
     </div>
