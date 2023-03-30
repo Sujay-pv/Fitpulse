@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css-files/Signup.css";
-import { Link, redirect } from 'react-router-dom';
+import { Link/*, redirect */} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -20,11 +20,25 @@ function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+   
     if(mobile && mobile.length ===10){
+      if(password.length>=6){
+        if(password===confirmPassword){
+          initiateOTP()
+        }
+        else{
+          alert("Password did not match");
+        }
+       
+      }else{
+        alert("Password Must be atleast 6 characters");
+      }
       
-      initiateOTP()
     }
-    console.log(`Name: ${name}, Email: ${email}, Mobile: ${mobile}, Password: ${password}, Confirm Password: ${confirmPassword}, OTP: ${otp}`);
+    else{
+      alert("Invalid Mobile No");
+    }
+    /*console.log(`Name: ${name}, Email: ${email}, Mobile: ${mobile}, Password: ${password}, Confirm Password: ${confirmPassword}, OTP: ${otp}`);*/
   };
 
 

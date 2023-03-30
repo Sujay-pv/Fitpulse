@@ -95,7 +95,6 @@ const BookingPage = () => {
       <div id="gymbookingbtnsec">
       <button id = "gymbookingbtn" type="submit">Book Now</button>
       </div>
-      
     </form>
     </div>
     </div>
