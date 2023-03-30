@@ -21,7 +21,7 @@
 
 #gymbookingheading{
     color: teal;
-    padding-top: 10px;
+    padding-top: 8px;
     text-align: center;
 }
 
@@ -30,25 +30,25 @@
     height: 25px;
     border-radius: 5px;
     border: none;
-    padding: 3px;
+    padding: 4px;
 }
 #bookingemail{
     width: 320px;
     height: 25px;
     border-radius: 5px;
     border: none;
-    padding: 3px;
+    padding: 4px;
 }
 #bookingnumber{
     width: 320px;
     height: 25px;
     border-radius: 5px;
     border: none;
-    padding: 3px;
+    padding: 4px;
 }
 
 .booking-section{
-    margin: 30px;
+    margin: 25px;
 }
 
 #gymlocation{
