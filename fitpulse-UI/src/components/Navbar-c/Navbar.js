@@ -33,7 +33,7 @@ export default function Navbar() {
           <img src={logo} alt="" />
         </div>
         <div className="nav-title">
-          <p>Fit Pulse</p>
+          <p>FitPulse</p>
         </div>
         <ul>
           <li>

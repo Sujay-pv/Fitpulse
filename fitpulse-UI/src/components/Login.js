@@ -39,43 +39,6 @@ function Login() {
     //
     // console.log(`Email: ${email}, Password: ${password}`);
   };
-<<<<<<< HEAD
-  return (
-    <div id="login-body">
-    <div className="login-container">
-     
-      <form onSubmit={handleSubmit} id="login-form">
-        
-      <h2 id="loginheading">Login</h2>
-        <div className="form-group-login">
-          <input
-          className="input-login"
-            type="email"
-            id="email-login"
-            value={email}
-            placeholder="Email id"
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group-login">
-          <input
-            className="input-login"
-            type="password"
-            id="password-login"
-            value={password}
-            placeholder="Password"
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn-login">
-          Login
-        </button>
-        <p>Don't have an account ? <Link to="/Signup" id="signuplink">Signup</Link> </p>
-      </form>
-    </div>
-=======
   /*<label htmlFor="email" className="label-login">Email:</label>
 
  <label htmlFor="password" className="label-login">Password:</label>
@@ -110,7 +73,7 @@ function Login() {
           <button type="submit" className="btn-login">
             Login
           </button>
-          <p>
+          <p id="signuplink-container">
             Don't have an account ?{" "}
             <Link to="/Signup" id="signuplink">
               Signup
@@ -118,7 +81,6 @@ function Login() {
           </p>
         </form>
       </div>
->>>>>>> da3a527740de72a356329aab30040bcfff1c516d
     </div>
   );
 }

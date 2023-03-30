@@ -114,7 +114,9 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
-  
+  #loginlink-container{
+    margin-top: 10px;
+  }
   .btn-singup:hover {
     background-color:  #00ffdd97;
   }

@@ -6,6 +6,7 @@
   #loginheading{
     /*margin-left: 110px;*/
     color: teal;
+    
   }
 
 .login-container {
@@ -70,7 +71,9 @@
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
     background-color: #0e7b87;
   }
-  
+  #signuplink-container{
+    margin-top: 10px;
+  }
   #signuplink{
     text-decoration: none;
     color: teal;
