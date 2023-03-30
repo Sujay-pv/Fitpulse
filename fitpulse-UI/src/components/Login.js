@@ -28,10 +28,6 @@ function Login() {
    // 
    // console.log(`Email: ${email}, Password: ${password}`);
   };
-/*<label htmlFor="email" className="label-login">Email:</label>
-
- <label htmlFor="password" className="label-login">Password:</label>
-*/
   return (
     <div id="login-body">
     <div className="login-container">
@@ -40,10 +36,6 @@ function Login() {
         
       <h2 id="loginheading">Login</h2>
         <div className="form-group-login">
-          
-
-
-
           <input
           className="input-login"
             type="email"
@@ -55,11 +47,6 @@ function Login() {
           />
         </div>
         <div className="form-group-login">
-
-
-         
-
-
           <input
             className="input-login"
             type="password"
