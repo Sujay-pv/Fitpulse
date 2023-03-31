@@ -1,5 +1,6 @@
 import React from "react";
 import './service.css';
+import { Link } from "react-router-dom";
 
 function Service ()  
 {
@@ -20,8 +21,9 @@ function Service ()
                 <div className="row">
 
 
-
+            
                     <div className="col__3">
+                    <Link to="/BookingPage">
                          <div className="service__box pointer">
                             <div className="icon">
                                 <svg
@@ -49,9 +51,12 @@ function Service ()
                                 </p>
                             </div>
                          </div>
+                         </Link>
                     </div>
+                   
 
                     <div className="col__3">
+                    <Link to="/BookingPage">
                          <div className="service__box pointer">
                             <div className="icon">
                                 <svg
@@ -78,9 +83,11 @@ function Service ()
                                 <p className="p service_text p_color">Smart Workout Plan</p>
                             </div>
                          </div>
+                         </Link>
                     </div>
 
                     <div className="col__3">
+                    <Link to="/BookingPage">
                          <div className="service__box pointer">
                             <div className="icon">
                                 <svg
@@ -98,6 +105,7 @@ function Service ()
                                     <line x1="8" y1="21" x2="16" y2="21"></line>
                                     <line x1="12" y1="17" x2="12" y2="21"></line>
                                 </svg>
+                            
                             </div>
 
                             <div className="service__meta">
@@ -108,6 +116,7 @@ function Service ()
                                 <p className="p service_text p_color">Get a 10% Discount 🥳</p>
                             </div>
                          </div>
+                         </Link>
                     </div>
                 </div>
             </div>

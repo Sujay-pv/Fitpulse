@@ -5,7 +5,7 @@
 
   #loginheading{
     /*margin-left: 110px;*/
-    color: teal;
+    color: /*teal;*/#f9004d;
     
   }
 
@@ -24,7 +24,7 @@
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    padding: 40px;
+    padding: 60px;
     background-color: #000000;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@
   }
 
   .input-login {
-    width: 250px;
+    width: 350px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -57,7 +57,7 @@
   
   .btn-login {
    /* margin-left: 110px;*/
-    background-color:	#008080 ;
+    background-color:	/*#008080 ;*/#f9004d;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -69,12 +69,12 @@
   .btn-login:hover {
     transform: translateY(-2px);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    background-color: #0e7b87;
+    background-color:/* #0e7b87;*/#f9004d;
   }
   #signuplink-container{
     margin-top: 20px;
   }
   #signuplink{
     text-decoration: none;
-    color: teal;
+    color: /*teal;*/#f9004d;
   }
