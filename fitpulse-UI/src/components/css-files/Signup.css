@@ -11,7 +11,7 @@
 
 #heading{
   /*margin-left: 150px;*/
-  color: teal;
+  color: /*teal;*/#f9004d;
 
 }
   .signup-container {
@@ -30,7 +30,7 @@
     flex-direction: column;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
+    padding: 60px;
     background-color: #000000;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -85,7 +85,7 @@
 
 
   .input-sigup {
-    width: 250px;
+    width: 350px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -93,7 +93,7 @@
 
  .btn-verify{
     margin-left: 2px;
-    background-color:	#008080 ;
+    background-color:	/*#008080 ;*/#f9004d;
     color: #fff;
     padding: 8px 16px;
     border-radius: 5px;
@@ -106,7 +106,7 @@
   
   .btn-signup {
    /* margin-left: 180px;*/
-    background-color:	#008080 ;
+    background-color:/*	#008080 ;*/#f9004d;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -114,11 +114,13 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
-  
+  #loginlink-container{
+    margin-top: 20px;
+  }
   .btn-singup:hover {
-    background-color:  #00ffdd97;
+    background-color: /* #00ffdd97;*/#f9004d;
   }
   #login-link{
     text-decoration: none;
-    color: teal;
+    color:/* teal;*/#f9004d;
   }

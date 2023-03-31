@@ -166,7 +166,7 @@ function SignUp() {
         <button type="submit" className="btn-signup">
           Sign Up
         </button>
-        <p>Already Registred ?  <Link to="/Login" id="login-link">Login</Link></p>
+        <p id="loginlink-container">Already Registred ?  <Link to="/Login" id="login-link">Login</Link></p>
       </form>}
       {showOTPField &&<form onSubmit={handleVerifyOTP} className="form-signup">
       

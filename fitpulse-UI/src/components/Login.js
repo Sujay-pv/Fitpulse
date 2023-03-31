@@ -73,7 +73,7 @@ function Login() {
           <button type="submit" className="btn-login">
             Login
           </button>
-          <p>
+          <p id="signuplink-container">
             Don't have an account ?{" "}
             <Link to="/Signup" id="signuplink">
               Signup

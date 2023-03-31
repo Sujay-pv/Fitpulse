@@ -11,10 +11,19 @@ const cookieparser = require("cookie-parser");
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(cookieparser());
 
+<<<<<<< HEAD
 const authToken = "38c2b334a856647b277bb3c453c96db9"; // Your Auth Token from www.twilio.com/console
 const accountSid = "AC196157eb740751fafd18c37842b2377d"; //deatils of twilio
 
 const client = require("twilio")(accountSid, authToken);
+=======
+
+
+const authToken = '38c2b334a856647b277bb3c453c96db9'; // Your Auth Token from www.twilio.com/console
+const accountSid = 'AC196157eb740751fafd18c37842b2377d'; //deatils of twilio
+
+const client = require('twilio')(accountSid, authToken);
+>>>>>>> 7c49de5dbfd8e85eea3dbcbcb1f4c70afbca7cb6
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

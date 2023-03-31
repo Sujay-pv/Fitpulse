@@ -36,8 +36,9 @@ const BookingPage = () => {
   return (
     <div id="booking-container">
       <div id="booking-container-inside">
+        
     <form  id="form-booking" onSubmit={handleSubmit}>
-      <h2 id="gymbookingheading">Gym Booking</h2>
+    <h1 id="gymbookingheading">Gym Booking</h1>
       <div className="booking-section">
        {/* <label htmlFor="name">Name:</label>*/}
         <input
@@ -89,9 +90,9 @@ const BookingPage = () => {
           onChange={(event) => setMembershipType(event.target.value)}
         >
           <option value="">--Select--</option>
-          <option value="basic">Basic</option>
-          <option value="standard">Standard</option>
-          <option value="premium">Premium</option>
+          <option value="3 Months">3 Months</option>
+          <option value="6 Months">6 Months</option>
+          <option value="12 Months">12 Months</option>
         </select>
       </div>
       <div className="booking-section">
