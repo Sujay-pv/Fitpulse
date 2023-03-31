@@ -27,21 +27,21 @@
 
 #bookingname{
     width: 320px;
-    height: 25px;
+    height: 30px;
     border-radius: 5px;
     border: none;
     padding: 4px;
 }
 #bookingemail{
     width: 320px;
-    height: 25px;
+    height: 30px;
     border-radius: 5px;
     border: none;
     padding: 4px;
 }
 #bookingnumber{
     width: 320px;
-    height: 25px;
+    height: 30px;
     border-radius: 5px;
     border: none;
     padding: 4px;
@@ -54,19 +54,19 @@
 #gymlocation{
     margin-left: 40px;
     width: 170px;
-    height: 25px;
+    height: 30px;
     border-radius: 20px;
 }
 #membershipType{
     margin-left: 10px;
     width:170px;
-    height: 25px;
+    height: 30px;
     border-radius: 20px;
 }
 #startDate{
     margin-left:60px;
     width: 170px;
-    height: 25px;
+    height: 30px;
     border-radius: 20px;
 
 }
