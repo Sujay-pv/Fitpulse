@@ -128,7 +128,7 @@
 
   .bar
   {
-    color:#98744a;
+    color:/*#98744a;*/white;
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
   }

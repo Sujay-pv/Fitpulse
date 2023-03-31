@@ -11,7 +11,6 @@ export class About extends Component
     return (
         <>
         <h3 id="about" />
-        
         <section className = "about">
         <div className="main">
         &nbsp;

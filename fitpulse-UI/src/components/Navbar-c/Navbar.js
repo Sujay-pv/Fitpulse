@@ -1,9 +1,9 @@
-import React, { Component, useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import React, { /*Component,*/ useEffect, useState } from "react";
+/*import ReactDOM from "react-dom";*/
 import logo from "./Images/final_logo.jpg";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import Login from "../Login";
+/*import Login from "../Login";*/
 import axios from "axios";
 
 export default function Navbar() {
@@ -49,13 +49,14 @@ export default function Navbar() {
             <a href="#about">About</a>
           </li>
           <li>
-            <a href="#contact">Contact&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            {/*<a href="#contact">Contact&nbsp;&nbsp;&nbsp;&nbsp;</a>*/}
+            <Link to="/contact">Contact&nbsp;&nbsp;&nbsp;&nbsp;</Link>
           </li>
 
           {uemail != null ? (
             <Link onClick={Logout}>Logout</Link>
           ) : (
-            <Link to="/Login">Login/SignUp</Link>
+            <Link to="/Login" id="nav-login-singup">Login/SignUp</Link>
           )}
 
           {/*button type = "button">Login / Sign up</button*/}

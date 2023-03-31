@@ -27,7 +27,7 @@
     line-height: 2.5;
     margin-left: 12px;
     float: left;
-    color: rgb(150, 140, 119);
+    color: /*rgb(150, 140, 119);*/white;
     letter-spacing: 1.0px;
     cursor: pointer;
   }
@@ -49,13 +49,13 @@
     font-size: 18px;
     text-transform: uppercase;
     padding: 0px 30px;
-    color: #93826E;
+    color: /*#93826E;*/white;
     text-decoration: none;
   }
 
   .navbar li a:hover
   {
-    color:white;
+    color:/*white;*/#f9004d;
     transition: all 0.4s ease 0s;   
   }
 
@@ -101,4 +101,7 @@
     width: 75px;
   }
 
+  #nav-login-singup:hover{
+      color: #f9004d;
+  }
   /* -------------------------    Header End     ------------------------- */
