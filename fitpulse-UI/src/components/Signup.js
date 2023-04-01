@@ -24,7 +24,20 @@ function SignUp() {
     if(mobile && mobile.length ===10){
       if(password.length>=6){
         if(password===confirmPassword){
-          initiateOTP()
+          //verifyemail
+      axios({
+        method: 'post',
+        url: `${BASE_URL}/verifydata`,
+        data: {
+          email: email,
+          mobileNumber: mobile,
+        }
+      }).then(response=>{
+        initiateOTP();
+      }, erro =>{
+        alert(erro?.response?.data?.mesg)
+      });
+          //initiateOTP()
         }
         else{
           alert("Password did not match");

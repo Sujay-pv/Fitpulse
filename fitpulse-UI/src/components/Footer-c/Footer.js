@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+/*import ReactDOM from "react-dom";*/
 import {FaInstagram,FaFacebook,FaLinkedin,FaYoutube,FaLocationArrow, FaEnvelope} from 'react-icons/fa'
 import "./footer.css";
 
@@ -54,6 +54,7 @@ export class Footer extends Component
                   <li><a href="#">Devaraja <br />20191CSE0124</a></li>
                 </ul>
               </div> 
+             
 
               <div className="footer-social">
                 <h4>Follow Us</h4>
