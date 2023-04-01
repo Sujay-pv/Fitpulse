@@ -38,7 +38,7 @@ const BookingPage = () => {
       <div id="booking-container-inside">
         
     <form  id="form-booking" onSubmit={handleSubmit}>
-    <h1 id="gymbookingheading">Gym Booking</h1>
+    <h1 id="gymbookingheading">Don't wait to get fit</h1>
       <div className="booking-section">
        {/* <label htmlFor="name">Name:</label>*/}
         <input
