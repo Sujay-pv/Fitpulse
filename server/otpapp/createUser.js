@@ -14,15 +14,6 @@ const schema = mongoose.Schema({
   // isOTPVerfied : Boolean
 });
 
-schema.statics.isThisEmailInUse = async function (email) {
-  try {
-    const user = await this.findOne({ email });
-    if (user) return false;
-    return true;
-  } catch (error) {
-    console.log("error inside emailinuse function", error.message);
-    return false;
-  }
-};
+
 const usermodel = mongoose.model("usermodel", schema);
 module.exports = usermodel;
