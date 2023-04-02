@@ -18,12 +18,26 @@ function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (mobile && mobile.length === 10) {
-      if (password.length >= 6) {
-        if (password === confirmPassword) {
-          initiateOTP();
-        } else {
+   
+    if(mobile && mobile.length ===10){
+      if(password.length>=6){
+        if(password===confirmPassword){
+          //verifyemail
+      axios({
+        method: 'post',
+        url: `${BASE_URL}/verifydata`,
+        data: {
+          email: email,
+          mobileNumber: mobile,
+        }
+      }).then(response=>{
+        initiateOTP();
+      }, erro =>{
+        alert(erro?.response?.data?.mesg)
+      });
+          //initiateOTP()
+        }
+        else{
           alert("Password did not match");
         }
       } else {

@@ -147,6 +147,39 @@ app.post("/login", async (req, res) => {
     res.status(500).send(error);
   }
 });
+app.post('/verifydata', async(req,res)=>{
+  const  { email,mobileNumber } = req.body;
+  // if(!email || !mobileNumber){
+  //   res.status(400).json({mesg : 'Invalid mail or mobile number'})
+  // }
+  console.log(email);
+  try {
+    await createUser.find({email : email}).then(response=>{
+      const list = response.filter(user=>user.email==email)
+      console.log('response email',list)
+      if(list.length > 0){
+        res.status(400).json({mesg : 'Mail already exists'})
+      }else{
+        validateMobileNumber(mobileNumber, res)
+      }
+    })
+   
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+async function  validateMobileNumber (mobileNumber, res){
+  await createUser.find({mobileNumber : mobileNumber}).then(response=>{
+    const list = response.filter(user=>user.mobileNumber==mobileNumber)
+    console.log('response mobileNumber',list)
+    if(list.length > 0){
+      res.status(400).json({mesg : 'mobileNumber already exists'})
+    }else{
+      res.json({status:"ok", message : 'Valid mail id and mobile number'})
+    }
+  })
+}
 
 // app.get('/', async(req,res)=>{
 //   try {
