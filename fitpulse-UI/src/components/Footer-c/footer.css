@@ -1,4 +1,4 @@
-/* -------------------------    Footer Start   ------------------------- */
+-------------------------    Footer Start   -------------------------
 * {
   padding: 0;
   margin: 0;
@@ -8,11 +8,12 @@
 
 .footer
 {
-  background-color: rgb(203, 195, 177);
+  /* background-color: rgb(203, 195, 177); */
+  background-color: black;
   padding: 70px 0;
 }
 
-.container
+/* .container
 {
   max-width: 1200px;
   margin: auto;
@@ -22,11 +23,11 @@
 .footer .container .row
 {
   margin-left: -450px;
-}
+} */
 
 /* -------------------------    Footer Address   ------------------------- */
 
-.footer-address
+/* .footer-address
 {
   width: 210px;
   padding: 0 15px;
@@ -77,13 +78,13 @@
 {
   color: #525151 ;
   padding-left: 8px;
-}
+} */
 
 /* -------------------------    Footer Address   ------------------------- */
 
 /* -------------------------    Footer Navigation   ------------------------- */
 
-.footer-nav
+/* .footer-nav
 {
   width: 210px;
   padding: 0 15px;
@@ -133,13 +134,13 @@
 {
   color: #525151 ;
   padding-left: 8px;
-}
+} */
 
 /* -------------------------    Footer Navigation   ------------------------- */
 
 /* -------------------------    Footer Founders   ------------------------- */
 
-.footer-founders
+/* .footer-founders
 {
   margin-left: 39px;
   width: 150px;
@@ -191,13 +192,13 @@
 {
   color: #525151 ;
   padding-left: 8px;
-}
+} */
 
 /* -------------------------    Footer Founders   ------------------------- */
 
 /* -------------------------    Footer Follow   ------------------------- */
 
-.footer-social
+/* .footer-social
 {
   margin-top: 264px;
   margin-left: -370px;
@@ -229,14 +230,14 @@
 .icon
 {
   font-size: 2rem;
-}
+} */
 
 
 /* -------------------------    Footer Follow   ------------------------- */
 
 /* -------------------------    Footer Icons   ------------------------- */
 
-.icon-address
+/* .icon-address
 {
   font-size: 1.5rem;
   color: #F9004D;
@@ -250,13 +251,13 @@
   color: #F9004D;
   margin-left: -921px;
   margin-top: 88px;
-}
+} */
 
 /* -------------------------    Footer Icons   ------------------------- */
 
 /* -------------------------    Contact   ------------------------- */
 
-.contact h4
+/* .contact h4
 {
   color: #000000;
 }
@@ -295,7 +296,21 @@
     background: transparent;
     border: 2px solid #F9004D;
     cursor: pointer;
-  }
+  } */
 
 /* -------------------------    Footer End    ------------------------- */
 
+
+.footercontainer{
+  color: white;
+  display: flex;
+
+}
+.footercontainer img{
+  height: 240px;
+  width: 240px;
+  display: inline-block;
+}
+.address{
+  display: block;
+}

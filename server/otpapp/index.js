@@ -8,13 +8,15 @@ const postModel = require("./postModel");
 const createUser = require("./createUser");
 const cookieparser = require("cookie-parser");
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
 app.use(cookieparser());
 
-const authToken = "38c2b334a856647b277bb3c453c96db9"; // Your Auth Token from www.twilio.com/console
-const accountSid = "AC196157eb740751fafd18c37842b2377d"; //deatils of twilio
 
-const client = require("twilio")(accountSid, authToken);
+
+const authToken = '38c2b334a856647b277bb3c453c96db9'; // Your Auth Token from www.twilio.com/console
+const accountSid = 'AC196157eb740751fafd18c37842b2377d'; //deatils of twilio
+
+const client = require('twilio')(accountSid, authToken);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -69,40 +71,21 @@ app.post("/verifyotp", async (req, res) => {
 app.post("/createUser", async (req, res) => {
   console.log("Create User called");
   const { name, mobileNumber, email, password } = req.body;
-  const user = await createUser.findOne({ email });
-  console.log(user);
-
-  // try {
-  //   if (user) isNewUser = false;
-  //   isNewUser = true;
-  // } catch (error) {
-  //   console.log("error inside emailinuse function", error.message);
-  //   isNewUser = false;
-  // }
-  if (user != null) {
-    console.log("Entering user check");
-    return res.json({
-      success: false,
-      message: "This email is in use, try signing in",
-    });
-  } else {
-    console.log("entered else");
-    try {
-      await createUser.create({ name, email, mobileNumber, password }).then(
-        (response) => {
-          res.json({ status: "ok", message: "Successfully created user" });
-        },
-        (err) => {
-          res.status(400).json({ status: "bad request" });
-        }
-      );
-    } catch (error) {
-      //  res.status(500).send(error);
-    }
-  }
   //const verificationotp = Math.floor(100000 + Math.random() * 9000);
   // const isOTPVerfied = false
   // console.log(title,otp);
+  try {
+    await createUser.create({ name, email, mobileNumber, password }).then(
+      (response) => {
+        res.json({ status: "ok", message: "Successfully created user" });
+      },
+      (err) => {
+        res.status(400).json({ status: "bad request" });
+      }
+    );
+  } catch (error) {
+    //  res.status(500).send(error);
+  }
 });
 // app.post('/validateotp', async(req,res)=>{
 //   const  { mobileNumber , otp} = req.body;
@@ -174,7 +157,7 @@ async function  validateMobileNumber (mobileNumber, res){
     const list = response.filter(user=>user.mobileNumber==mobileNumber)
     console.log('response mobileNumber',list)
     if(list.length > 0){
-      res.status(400).json({mesg : 'mobileNumber already exists'})
+      res.status(400).json({mesg : 'Mobile Number already exists'})
     }else{
       res.json({status:"ok", message : 'Valid mail id and mobile number'})
     }
