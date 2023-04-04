@@ -8,7 +8,7 @@ const postModel = require("./postModel");
 const createUser = require("./createUser");
 const cookieparser = require("cookie-parser");
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
 app.use(cookieparser());
 
 
@@ -157,7 +157,7 @@ async function  validateMobileNumber (mobileNumber, res){
     const list = response.filter(user=>user.mobileNumber==mobileNumber)
     console.log('response mobileNumber',list)
     if(list.length > 0){
-      res.status(400).json({mesg : 'mobileNumber already exists'})
+      res.status(400).json({mesg : 'Mobile Number already exists'})
     }else{
       res.json({status:"ok", message : 'Valid mail id and mobile number'})
     }
