@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./css-files/bookingpage.css";
+import axios from 'axios';
+/*import { Link/*, redirect } from 'react-router-dom';*/
 
 const BookingPage = () => {
+  const BASE_URL = 'http://localhost:3007'
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -9,9 +12,17 @@ const BookingPage = () => {
   const [membershipType, setMembershipType] = useState("");
   const [startDate, setStartDate] = useState("");
 
+
+  const [showOTPField, setShowOTPField] = useState(false);
+  const [otpResponse, setOtpResponse] = useState(false);
+  const [otp, setOTP] = useState("");
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
+    initiateOTP();
     console.log({
       name,
       email,
@@ -21,6 +32,70 @@ const BookingPage = () => {
       startDate
     });
   };
+
+
+
+  const initiateOTP = (event) => {
+    // event.preventDefault();
+     axios({
+       method: 'post',
+       url: `${BASE_URL}/sendotp`,
+       data: {
+         mobileNumber: number,
+       }
+     }).then(response=>{
+       setShowOTPField(true)
+       setOtpResponse(response?.data)
+     });
+   };
+
+
+
+   const initiateBooking = () => {
+    axios({
+      method: 'post',
+      url: `${BASE_URL}/createBooking`,
+      data: {
+        mobileNumber: number,
+        name: name,
+        email: email,
+        gymlocation:gymLocation,
+        membershipType:membershipType,
+        startDate:startDate
+      }
+    }).then(response=>{
+     // setShowOTPField(true)
+      alert(`Verified OTP Successfully and Booking ${name} Created `);
+      
+      window.location.replace('/Bookingconfirm') 
+      //setOtpResponse(response)
+    });
+  };
+
+
+
+
+
+   const handleVerifyOTP = (event) => {
+    event.preventDefault();
+    axios({
+      method: 'post',
+      url: `${BASE_URL}/verifyotp`,
+      data: {
+        otp: otp,
+        id : otpResponse?.id
+      }
+    }).then(response=>{
+      alert("otp verified")
+      initiateBooking()
+    }, erro =>{
+      alert("Invalid otp")
+    });
+    //console.log(`OTP: ${otp} verified`);
+  };
+
+
+ 
 
 
   let dateObj = new Date();
@@ -37,7 +112,7 @@ const BookingPage = () => {
     <div id="booking-container">
       <div id="booking-container-inside">
         
-    <form  id="form-booking" onSubmit={handleSubmit}>
+      {!showOTPField &&<form  id="form-booking" onSubmit={handleSubmit}>
     <h1 id="gymbookingheading">Pulse Pass</h1>
       <div className="booking-section">
        {/* <label htmlFor="name">Name:</label>*/}
@@ -47,6 +122,7 @@ const BookingPage = () => {
           value={name}
           placeholder="Name"
           onChange={(event) => setName(event.target.value)}
+          required
         />
       </div>
       <div className="booking-section">
@@ -57,6 +133,7 @@ const BookingPage = () => {
           value={email}
           placeholder="Email id"
           onChange={(event) => setEmail(event.target.value)}
+          required
         />
       </div>
       <div className="booking-section">
@@ -67,6 +144,8 @@ const BookingPage = () => {
           value={number}
           placeholder="Mobile Number"
           onChange={(event) => setNumber(event.target.value)}
+          required
+
         />
       </div>
       <div className="booking-section">
@@ -108,7 +187,25 @@ const BookingPage = () => {
       <div id="gymbookingbtnsec">
       <button id = "gymbookingbtn" type="submit">Book Now</button>
       </div>
-    </form>
+      </form>}
+      {showOTPField &&<form onSubmit={handleVerifyOTP} className="form-signup">
+      
+          <div className="form-groupsignup">
+            <input
+            className="input-sigup"
+              type="text"
+              id="otp-signup"
+              value={otp}
+              placeholder="OTP"
+              onChange={(event) => setOTP(event.target.value)}
+              required
+            />
+            
+          </div>
+          <button type="submit" className="btn-signup">
+            Verify OTP
+          </button>
+    </form>}
     </div>
     </div>
   );

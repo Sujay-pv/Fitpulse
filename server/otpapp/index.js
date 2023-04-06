@@ -6,6 +6,7 @@ const otpGenerator = require("otp-generator");
 const db = require("./connect");
 const postModel = require("./postModel");
 const createUser = require("./createUser");
+const createBooking = require("./createBooking");
 const cookieparser = require("cookie-parser");
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
@@ -183,6 +184,33 @@ async function  validateMobileNumber (mobileNumber, res){
 //   res.status(500).send(error)
 // }
 // })
+
+
+
+app.post("/createBooking", async (req, res) => {
+  console.log("Create Booking called");
+  const { name, mobileNumber, email,  gymlocation, membershipType, startDate } = req.body;
+  //const verificationotp = Math.floor(100000 + Math.random() * 9000);
+  // const isOTPVerfied = false
+  // console.log(title,otp);
+  //add email verification
+  try {
+    await createBooking.create({ name, email, mobileNumber, gymlocation, membershipType, startDate }).then(
+      (response) => {
+        res.json({ status: "ok", message: "Successfully created Booking" });
+      },
+      (err) => {
+        res.status(400).json({ status: "bad request" });
+      }
+    );
+  } catch (error) {
+    //  res.status(500).send(error);
+  }
+});
+
+
+
+
 app.get("/getcookie", (req, res) => {
   const token = req.cookies;
   res.json(token);
