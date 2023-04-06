@@ -9,7 +9,7 @@
 .footer
 {
   background-color: rgb(203, 195, 177);
-  padding: 70px 0;
+  padding: 70px 30px;
 }
 
 .container
@@ -21,7 +21,7 @@
 
 .footer .container .row
 {
-  margin-left: -450px;
+  margin-left: 10px;
 }
 
 /* -------------------------    Footer Address   ------------------------- */
@@ -86,7 +86,7 @@
 .footer-nav
 {
   width: 210px;
-  padding: 0 15px;
+  padding: 0 60px;
 }
 
 .footer-nav h4
@@ -199,8 +199,7 @@
 
 .footer-social
 {
-  margin-top: 264px;
-  margin-left: -370px;
+  margin-left: 70px;
 }
 
 .footer-social h4
@@ -256,17 +255,28 @@
 
 /* -------------------------    Contact   ------------------------- */
 
-.contact h4
+.footer-contact
+{
+  margin-left: 70px;
+}
+.footer-contact h4
+{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+  color: #000000;
+}
+
+.footer-contact ul li a
 {
   color: #000000;
 }
 
-.contact ul li a
-{
-  color: #000000;
-}
-
-.contact h4::before
+.footer-contact h4::before
 {
   content: '';
   position: absolute;
@@ -278,8 +288,10 @@
   width: 75px;
 }
 
-.contact button
+.footer-contact button
   {
+    margin-top: 150px;
+    margin-left: -200px;
     background: #F9004D;
     color: rgb(210, 208, 208);
     text-decoration: none;
@@ -290,7 +302,7 @@
     transition: .4s;
   }
 
-  .contact button:hover
+  .footer-contact button:hover
   {
     background: transparent;
     border: 2px solid #F9004D;

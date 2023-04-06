@@ -104,6 +104,8 @@ function SignUp() {
       }
     }).then(response=>{
       initiateCreateUser();
+    }, erro =>{
+      alert("Invalid otp")
     });
     //console.log(`OTP: ${otp} verified`);
   };
