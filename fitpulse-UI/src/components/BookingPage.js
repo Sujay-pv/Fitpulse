@@ -4,6 +4,11 @@ import axios from 'axios';
 /*import { Link, redirect } from 'react-router-dom';*/
 
 
+
+//testing feature
+import emailjs from '@emailjs/browser';
+
+
 const BookingPage = () => {
   const BASE_URL = 'http://localhost:3007'
   const [name, setName] = useState("");
@@ -18,6 +23,9 @@ const BookingPage = () => {
   const [otpResponse, setOtpResponse] = useState(false);
   const [otp, setOTP] = useState("");
 
+  
+  
+
 
 
 
@@ -25,8 +33,21 @@ const BookingPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
+   
    initiateOTP();
-   //sendEmail();
+   
+//tesingfeature
+
+   emailjs.sendForm('service_oqq0osq', 'template_x55z057', event.target, 'xTN8RKQjVHyzK0wxG')
+   .then((result) => {
+       console.log(result.text);
+   }, (error) => {
+       console.log(error.text);
+   });
+
+  
+   
+  
     /*console.log({
       name,
       email,
@@ -54,26 +75,6 @@ const BookingPage = () => {
    };
 
 
-
-   /*const sendEmail = () => {
-    window.Email.send({
-      Host: "smtp.gmail.com",
-      Username: "fitpulseofficial@gmail.com",
-      Password: "5953D8BF0B858C74A0E01C8F19A0C8EA7077",
-      To: 'dhanusheagle2@gmail.com',
-      From: "fitpulseofficial@gmail.com",
-      Subject: "Sending Email using javascript",
-      Body: "Well that was easy!!",
-    })
-      .then(function (message) {
-        alert("mail sent successfully")
-      });
-  }*/
-
-
-
-
-
    const initiateBooking = () => {
     //event.preventDefault();
     axios({
@@ -88,7 +89,7 @@ const BookingPage = () => {
         startDate:startDate
       }
     }).then(response=>{
-      alert(`Verified OTP Successfully and Booking ${name} Created `);
+      alert(`Verified OTP Successfully and Booking succesfull `);
       window.location.replace('/Bookingconfirm') 
     });
   };
@@ -111,7 +112,9 @@ const BookingPage = () => {
       alert("otp verified")
       initiateBooking()
     }, erro =>{
-      alert("Invalid otp")
+      alert("Invalid otp try again")
+     // window.location.replace('/BookingPage')
+
     });
     //console.log(`OTP: ${otp} verified`);
   };
