@@ -3,8 +3,11 @@ import "./css-files/bookingconfirm.css";
 
 function Bookingconfirm() {
   return (
+    <div id="bc-body">
     <div id="bookingconfirm-container">
-        <h2>Thank You for Booking with Us</h2>
+        <h2 id="bc-ty">Booking Confirmed</h2>
+        <h4 id="bc-msg">Thank you</h4>
+    </div>
     </div>
   )
 }

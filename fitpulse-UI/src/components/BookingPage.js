@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./css-files/bookingpage.css";
 import axios from 'axios';
-/*import { Link/*, redirect } from 'react-router-dom';*/
+/*import { Link, redirect } from 'react-router-dom';*/
+
 
 const BookingPage = () => {
   const BASE_URL = 'http://localhost:3007'
@@ -19,18 +20,21 @@ const BookingPage = () => {
 
 
 
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
-    initiateOTP();
-    console.log({
+   initiateOTP();
+   //sendEmail();
+    /*console.log({
       name,
       email,
       number,
       gymLocation,
       membershipType,
       startDate
-    });
+    });*/
   };
 
 
@@ -51,7 +55,27 @@ const BookingPage = () => {
 
 
 
+   /*const sendEmail = () => {
+    window.Email.send({
+      Host: "smtp.gmail.com",
+      Username: "fitpulseofficial@gmail.com",
+      Password: "5953D8BF0B858C74A0E01C8F19A0C8EA7077",
+      To: 'dhanusheagle2@gmail.com',
+      From: "fitpulseofficial@gmail.com",
+      Subject: "Sending Email using javascript",
+      Body: "Well that was easy!!",
+    })
+      .then(function (message) {
+        alert("mail sent successfully")
+      });
+  }*/
+
+
+
+
+
    const initiateBooking = () => {
+    //event.preventDefault();
     axios({
       method: 'post',
       url: `${BASE_URL}/createBooking`,
@@ -64,15 +88,13 @@ const BookingPage = () => {
         startDate:startDate
       }
     }).then(response=>{
-     // setShowOTPField(true)
       alert(`Verified OTP Successfully and Booking ${name} Created `);
-      
       window.location.replace('/Bookingconfirm') 
-      //setOtpResponse(response)
     });
   };
 
 
+  
 
 
 
@@ -112,12 +134,13 @@ const BookingPage = () => {
     <div id="booking-container">
       <div id="booking-container-inside">
         
-      {!showOTPField &&<form  id="form-booking" onSubmit={handleSubmit}>
+      {!showOTPField &&<form  id="form-booking"  onSubmit={handleSubmit}>
     <h1 id="gymbookingheading">Pulse Pass</h1>
       <div className="booking-section">
        {/* <label htmlFor="name">Name:</label>*/}
         <input
           type="text"
+          name = "user_name"
           id="bookingname"
           value={name}
           placeholder="Name"
@@ -129,6 +152,7 @@ const BookingPage = () => {
         {/*<label htmlFor="email">Email:</label>*/}
         <input
           type="email"
+          name = "user_email"
           id="bookingemail"
           value={email}
           placeholder="Email id"
@@ -140,6 +164,7 @@ const BookingPage = () => {
         {/*<label htmlFor="number">Number:</label>*/}
         <input
           type="tel"
+          name = "user_number"
           id="bookingnumber"
           value={number}
           placeholder="Mobile Number"
@@ -152,6 +177,7 @@ const BookingPage = () => {
         <label htmlFor="gymLocation">Gym Location</label>
         <select
           id="gymlocation"
+          name = "user_gymlocation"
           value={gymLocation}
           onChange={(event) => setGymLocation(event.target.value)}
         >
@@ -165,6 +191,7 @@ const BookingPage = () => {
         <label htmlFor="membershipType">Membership Type</label>
         <select
           id="membershipType"
+          name = "user_membershiptype"
           value={membershipType}
           onChange={(event) => setMembershipType(event.target.value)}
         >
@@ -178,6 +205,7 @@ const BookingPage = () => {
         <label htmlFor="startDate">Start Date</label>
         <input
           type="date"
+          name="user_startdate"
           id="startDate"
           min={today}
           value={startDate}
