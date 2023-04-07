@@ -33,12 +33,25 @@ const BookingPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
+
+    axios({
+      method: 'post',
+      url: `${BASE_URL}/verifydatabooking`,
+      data: {
+        email: email,
+        mobileNumber: number,
+      }
+    }).then(response=>{
+      initiateOTP();
+    }, erro =>{
+      alert(erro?.response?.data?.mesg)
+    });
    
-   initiateOTP();
+   //initiateOTP();
    
 //tesingfeature
 
-   emailjs.sendForm('service_oqq0osq', 'template_x55z057', event.target, 'xTN8RKQjVHyzK0wxG')
+   /*emailjs.sendForm('service_oqq0osq', 'template_x55z057', event.target, 'xTN8RKQjVHyzK0wxG')
    .then((result) => {
        console.log(result.text);
    }, (error) => {

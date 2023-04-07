@@ -211,6 +211,44 @@ app.post("/createBooking", async (req, res) => {
 
 
 
+
+app.post('/verifydatabooking', async(req,res)=>{
+  const  { email,mobileNumber } = req.body;
+  // if(!email || !mobileNumber){
+  //   res.status(400).json({mesg : 'Invalid mail or mobile number'})
+  // }
+  console.log(email);
+  try {
+    await createBooking.find({email : email}).then(response=>{
+      const list = response.filter(booking=>booking.email==email)
+      console.log('response email',list)
+      if(list.length > 0){
+        res.status(400).json({mesg : 'Booking with this Mail already exists'})
+      }else{
+        validateMobileNumberbooking(mobileNumber, res)
+      }
+    })
+   
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+async function  validateMobileNumberbooking (mobileNumber, res){
+  await createBooking.find({mobileNumber : mobileNumber}).then(response=>{
+    const list = response.filter(booking=>booking.mobileNumber==mobileNumber)
+    console.log('response mobileNumber',list)
+    if(list.length > 0){
+      res.status(400).json({mesg : 'Booking with this Mobile Number already exists'})
+    }else{
+      res.json({status:"ok", message : 'Valid mail id and mobile number'})
+    }
+  })
+}
+
+
+
+
 app.get("/getcookie", (req, res) => {
   const token = req.cookies;
   res.json(token);
