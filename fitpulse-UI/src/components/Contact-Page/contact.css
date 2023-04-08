@@ -1,0 +1,274 @@
+/* ------------------------- Contact-Page Starts ------------------------- */
+body {
+  font-family: /*sans-serif;*/Arial, Helvetica, sans-serif;
+  background-color: #000000;
+  box-sizing: border-box;
+  outline: none;
+}
+.contact-page 
+{
+  margin-top: 30px;
+  margin-bottom: 120px;
+  
+}
+
+.contact-container h1
+{
+  color: /*#ffffff*/#f9004d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+
+/* -------------------------    Form   ------------------------- */
+
+.contact-form
+{
+  margin-top: -50px;
+  margin-left: 750px;
+  background-color: (#ffffff, #000000);
+  max-width: 37%;
+  padding: 80px 0px;
+  text-align: center;
+  /*border: 1px solid black;
+  border-width: 2px 1px 2px 1px;
+  border-color: red white blue white;*/
+}
+
+.contact-form h3
+{
+  font-size: 30px;
+  text-align: center;
+  margin-left: -70px;
+  color: #ffffff;
+  font-family:/*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif*/Arial, Helvetica, sans-serif;
+}
+
+
+.contact-elements
+{
+  margin-top: -10px;
+  margin-left: 21px;
+}
+
+input[placeholder="Name"]
+select
+{
+    color: white;
+}
+
+input[type="text"],
+select {
+  width: 75%;
+  box-sizing: border-box;
+  padding: 6px 5px;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  margin-left: -90px;
+  font-family: /*"Times New Roman", Times, serif;*/Arial, Helvetica, sans-serif;
+}
+
+input[type="email"],
+select {
+  width: 75%;
+  box-sizing: border-box;
+  padding: 6px 5px;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  margin-left: -90px;
+  font-family: /*"Times New Roman", Times, serif;*/Arial, Helvetica, sans-serif;
+}
+
+input[type="tel"],
+select {
+  width: 75%;
+  box-sizing: border-box;
+  padding: 6px 5px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: -90px;
+  font-family: /*"Times New Roman", Times, serif;*/Arial, Helvetica, sans-serif;
+}
+
+textarea[name="message"],
+select {
+  height: 275px;
+  width: 480px;
+  box-sizing: border-box;
+  padding: -5px 0px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  font-family: /*"Times New Roman", Times, serif;*/Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+button[type="submit"],
+select {
+  background: #f9004d;
+  color: white;
+  text-decoration: none;
+  border: 1px solid transparent;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: 0.4s;
+  font-family: /*"Times New Roman", Times, serif;*/Arial, Helvetica, sans-serif;
+}
+
+button[type="submit"]:hover 
+{
+  color: #ffffff;
+  background: #000000;
+  border: 2px solid #f9004d;
+  cursor: pointer;
+}
+
+.us {
+  color: #ffffff;
+  font-family: /*"Times New Roman", Times, serif;*/Arial, Helvetica, sans-serif;
+  font-size: 28px;
+}
+
+/* -------------------------    Form   ------------------------- */
+
+/* -------------------------    Address   ------------------------- */
+
+.contact-address 
+{
+  margin-top: -633px;
+  margin-left: -80px;  
+  background-color: transparent;
+  max-width: 70%;
+  padding: 130px 0px;
+}
+
+.contact-address h3
+{
+    color: #ffffff;
+    font-family:/*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin-left: 320px;
+    margin-top: -150px;
+}
+
+.addr
+{
+  margin-top: 35px;
+  margin-left: 5px;
+}
+
+.addr-head h5
+{
+    color: #ffffff;
+    font-family:/*Georgia, 'Times New Roman', Times, serif;*/Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    margin-top: -15px;
+    margin-left: 320px;
+}
+
+.addr-head p
+{
+    color: #ffffff;
+    font-family:/*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    margin-left: 480px;
+    margin-top: -25px;
+}
+
+.addr-phone
+{
+  margin-top: -20px;
+}
+
+.addr-phone h5
+{
+    color: #ffffff;
+    font-family:/*Georgia, 'Times New Roman', Times, serif;*/Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-left: 320px;
+}
+
+.addr-phone p
+{
+    color: #ffffff;
+    font-family:/*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin-left: 472px;
+    margin-top: -25px;
+}
+
+.addr-email h5
+{
+    color: #ffffff;
+    font-family:/*Georgia, 'Times New Roman', Times, serif;*/Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-left: 320px;
+}
+
+.addr-email p
+{
+    color: #ffffff;
+    font-family:/*Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin-left: 480px;
+    margin-top: -25px;
+}
+
+/* -------------------------    Address   ------------------------- */
+
+/* -------------------------   Map   ------------------------- */
+
+.contact-map iframe
+{
+  margin-left: 250px;
+  margin-top: -80px;
+}
+
+/*.contact-map
+{
+  margin-left: -500px;
+  margin-top: 100px;
+}
+
+.contact-map h3
+{
+    color: #b0b0b09e;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    margin-left: -370px;
+    margin-top: -210px;
+}*/
+
+/* -------------------------   Map   ------------------------- */
+
+/* ------------------------- Contact-Page Ends ------------------------- */

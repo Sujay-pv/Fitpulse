@@ -4,7 +4,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
  import Home from './components/Home';
  import BookingPage from './components/BookingPage';
- import Contact from './components/contact-c/Contact';
+ import Contact from './components/Contact-Page/Contact'
  import Bookingconfirm from './components/Bookingconfirm';
 
 function App() {

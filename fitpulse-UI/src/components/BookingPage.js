@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import "./css-files/bookingpage.css";
 import axios from 'axios';
 /*import { Link, redirect } from 'react-router-dom';*/
-
+import { Footer } from "./Footer-c/Footer";
 
 
 //testing feature
@@ -147,7 +147,9 @@ const BookingPage = () => {
 
 
   return (
+    
     <div id="booking-container">
+     
       <div id="booking-container-inside">
         
       {!showOTPField &&<form  id="form-booking"  onSubmit={handleSubmit}>
@@ -251,7 +253,10 @@ const BookingPage = () => {
           </button>
     </form>}
     </div>
+  
     </div>
+     
+    
   );
 };
 
