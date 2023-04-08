@@ -31,6 +31,13 @@ Our team of certified fitness experts and nutritionists have years of experience
             </div>
         </div>
         </section>
+        <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       </>
     );
   }

@@ -62,6 +62,10 @@ export default function Navbar() {
           {/*button type = "button">Login / Sign up</button*/}
         </ul>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </>
   );
 }

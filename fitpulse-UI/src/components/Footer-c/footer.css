@@ -35,7 +35,7 @@
 
 .footer-address {
   width: 18%;
-  margin-left: 5px;
+  margin-left: 0px;
 }
 
 .footer-address h4 {
@@ -258,7 +258,7 @@
 .footer-social .logo-image img
 {
     width: 14%;
-    margin-left: 840px;
+    margin-left: 770px;
 }
 
 /* -------------------------   Footer Social Media    ------------------------- */
