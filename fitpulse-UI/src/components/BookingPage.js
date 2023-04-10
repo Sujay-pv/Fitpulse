@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./css-files/bookingpage.css";
+import axios from 'axios';
+/*import { Link, redirect } from 'react-router-dom';*/
+import { Footer } from "./Footer-c/Footer";
+
+
+//testing feature
+import emailjs from '@emailjs/browser';
+
 
 const BookingPage = () => {
+  const BASE_URL = 'http://localhost:3007'
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -9,18 +18,122 @@ const BookingPage = () => {
   const [membershipType, setMembershipType] = useState("");
   const [startDate, setStartDate] = useState("");
 
+
+  const [showOTPField, setShowOTPField] = useState(false);
+  const [otpResponse, setOtpResponse] = useState(false);
+  const [otp, setOTP] = useState("");
+
+  
+  
+
+
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
-    console.log({
+
+    axios({
+      method: 'post',
+      url: `${BASE_URL}/verifydatabooking`,
+      data: {
+        email: email,
+        mobileNumber: number,
+      }
+    }).then(response=>{
+      initiateOTP();
+    }, erro =>{
+      alert(erro?.response?.data?.mesg)
+    });
+   
+   //initiateOTP();
+   
+//tesingfeature
+
+   /*emailjs.sendForm('service_oqq0osq', 'template_x55z057', event.target, 'xTN8RKQjVHyzK0wxG')
+   .then((result) => {
+       console.log(result.text);
+   }, (error) => {
+       console.log(error.text);
+   });
+
+  
+   
+  
+    /*console.log({
       name,
       email,
       number,
       gymLocation,
       membershipType,
       startDate
+    });*/
+  };
+
+
+
+  const initiateOTP = (event) => {
+    // event.preventDefault();
+     axios({
+       method: 'post',
+       url: `${BASE_URL}/sendotp`,
+       data: {
+         mobileNumber: number,
+       }
+     }).then(response=>{
+       setShowOTPField(true)
+       setOtpResponse(response?.data)
+     });
+   };
+
+
+   const initiateBooking = () => {
+    //event.preventDefault();
+    axios({
+      method: 'post',
+      url: `${BASE_URL}/createBooking`,
+      data: {
+        mobileNumber: number,
+        name: name,
+        email: email,
+        gymlocation:gymLocation,
+        membershipType:membershipType,
+        startDate:startDate
+      }
+    }).then(response=>{
+      alert(`Verified OTP Successfully and Booking succesfull `);
+      window.location.replace('/Bookingconfirm') 
     });
   };
+
+
+  
+
+
+
+   const handleVerifyOTP = (event) => {
+    event.preventDefault();
+    axios({
+      method: 'post',
+      url: `${BASE_URL}/verifyotp`,
+      data: {
+        otp: otp,
+        id : otpResponse?.id
+      }
+    }).then(response=>{
+      alert("otp verified")
+      initiateBooking()
+    }, erro =>{
+      alert("Invalid otp try again")
+     // window.location.replace('/BookingPage')
+
+    });
+    //console.log(`OTP: ${otp} verified`);
+  };
+
+
+ 
 
 
   let dateObj = new Date();
@@ -34,45 +147,55 @@ const BookingPage = () => {
 
 
   return (
+    
     <div id="booking-container">
+     
       <div id="booking-container-inside">
         
-    <form  id="form-booking" onSubmit={handleSubmit}>
+      {!showOTPField &&<form  id="form-booking"  onSubmit={handleSubmit}>
     <h1 id="gymbookingheading">Pulse Pass</h1>
       <div className="booking-section">
        {/* <label htmlFor="name">Name:</label>*/}
         <input
           type="text"
+          name = "user_name"
           id="bookingname"
           value={name}
           placeholder="Name"
           onChange={(event) => setName(event.target.value)}
+          required
         />
       </div>
       <div className="booking-section">
         {/*<label htmlFor="email">Email:</label>*/}
         <input
           type="email"
+          name = "user_email"
           id="bookingemail"
           value={email}
           placeholder="Email id"
           onChange={(event) => setEmail(event.target.value)}
+          required
         />
       </div>
       <div className="booking-section">
         {/*<label htmlFor="number">Number:</label>*/}
         <input
           type="tel"
+          name = "user_number"
           id="bookingnumber"
           value={number}
           placeholder="Mobile Number"
           onChange={(event) => setNumber(event.target.value)}
+          required
+
         />
       </div>
       <div className="booking-section">
         <label htmlFor="gymLocation">Gym Location</label>
         <select
           id="gymlocation"
+          name = "user_gymlocation"
           value={gymLocation}
           onChange={(event) => setGymLocation(event.target.value)}
         >
@@ -86,6 +209,7 @@ const BookingPage = () => {
         <label htmlFor="membershipType">Membership Type</label>
         <select
           id="membershipType"
+          name = "user_membershiptype"
           value={membershipType}
           onChange={(event) => setMembershipType(event.target.value)}
         >
@@ -99,6 +223,7 @@ const BookingPage = () => {
         <label htmlFor="startDate">Start Date</label>
         <input
           type="date"
+          name="user_startdate"
           id="startDate"
           min={today}
           value={startDate}
@@ -108,9 +233,30 @@ const BookingPage = () => {
       <div id="gymbookingbtnsec">
       <button id = "gymbookingbtn" type="submit">Book Now</button>
       </div>
-    </form>
+      </form>}
+      {showOTPField &&<form onSubmit={handleVerifyOTP} className="form-signup">
+      
+          <div className="form-groupsignup">
+            <input
+            className="input-sigup"
+              type="text"
+              id="otp-signup"
+              value={otp}
+              placeholder="OTP"
+              onChange={(event) => setOTP(event.target.value)}
+              required
+            />
+            
+          </div>
+          <button type="submit" className="btn-signup">
+            Verify OTP
+          </button>
+    </form>}
     </div>
+  
     </div>
+     
+    
   );
 };
 

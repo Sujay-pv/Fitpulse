@@ -24,10 +24,6 @@ function Home() {
   return (
     <div className="App">
       <Navbar />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
 
       <div style={containerStyles}>
         <Slider slides={slides} />
@@ -36,17 +32,8 @@ function Home() {
       <Service />
 
       <Exercise />
-      <br></br>
-      <br></br>
 
       <About />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
 
       <Partner />
 

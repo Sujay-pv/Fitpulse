@@ -6,6 +6,7 @@ const otpGenerator = require("otp-generator");
 const db = require("./connect");
 const postModel = require("./postModel");
 const createUser = require("./createUser");
+const createBooking = require("./createBooking");
 const cookieparser = require("cookie-parser");
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
@@ -183,6 +184,71 @@ async function  validateMobileNumber (mobileNumber, res){
 //   res.status(500).send(error)
 // }
 // })
+
+
+
+app.post("/createBooking", async (req, res) => {
+  console.log("Create Booking called");
+  const { name, mobileNumber, email,  gymlocation, membershipType, startDate } = req.body;
+  //const verificationotp = Math.floor(100000 + Math.random() * 9000);
+  // const isOTPVerfied = false
+  // console.log(title,otp);
+  //add email verification
+  try {
+    await createBooking.create({ name, email, mobileNumber, gymlocation, membershipType, startDate }).then(
+      (response) => {
+        res.json({ status: "ok", message: "Successfully created Booking" });
+      },
+      (err) => {
+        res.status(400).json({ status: "bad request" });
+      }
+    );
+  } catch (error) {
+    //  res.status(500).send(error);
+  }
+});
+
+
+
+
+
+app.post('/verifydatabooking', async(req,res)=>{
+  const  { email,mobileNumber } = req.body;
+  // if(!email || !mobileNumber){
+  //   res.status(400).json({mesg : 'Invalid mail or mobile number'})
+  // }
+  console.log(email);
+  try {
+    await createBooking.find({email : email}).then(response=>{
+      const list = response.filter(booking=>booking.email==email)
+      console.log('response email',list)
+      if(list.length > 0){
+        res.status(400).json({mesg : 'Booking with this Mail already exists'})
+      }else{
+        validateMobileNumberbooking(mobileNumber, res)
+      }
+    })
+   
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+async function  validateMobileNumberbooking (mobileNumber, res){
+  await createBooking.find({mobileNumber : mobileNumber}).then(response=>{
+    const list = response.filter(booking=>booking.mobileNumber==mobileNumber)
+    console.log('response mobileNumber',list)
+    if(list.length > 0){
+      res.status(400).json({mesg : 'Booking with this Mobile Number already exists'})
+    }else{
+      res.json({status:"ok", message : 'Valid mail id and mobile number'})
+    }
+  })
+}
+
+
+
+
 app.get("/getcookie", (req, res) => {
   const token = req.cookies;
   res.json(token);

@@ -6,260 +6,364 @@
   outline: none;
 }
 
+<<<<<<< HEAD
 .footer
 {
   background-color: rgb(203, 195, 177);
   padding: 70px 30px;
-}
-
-.container
-{
-  max-width: 1200px;
+=======
+.container {
   margin: auto;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
+>>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
+.row {
+  margin-left: -50px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: hidden;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+<<<<<<< HEAD
 .footer .container .row
 {
   margin-left: 10px;
+=======
+.footer {
+  background-image: linear-gradient(#000000, #868686);
+  padding: 70px 0;
+  border-color: (#f9004d, #000000, #000000, #000000);
+>>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
-/* -------------------------    Footer Address   ------------------------- */
-
-.footer-address
-{
-  width: 210px;
-  padding: 0 15px;
+.icon {
+  font-size: 2rem;
 }
 
-.footer-address h4
-{
-  font-family: 'Times New Roman', Times, serif;
+/* -------------------------   Footer Address    ------------------------- */
+
+.footer-address {
+  width: 18%;
+  margin-left: 0px;
+}
+
+.footer-address h4 {
   font-size: 18px;
-  color: rgb(0, 0, 0);
+  color: #ffffff;
   text-transform: capitalize;
   margin-bottom: 35px;
   font-weight: 500;
   position: relative;
+  font-family: serif;
 }
 
-.footer-address h4::before
-{
-  content: '';
+.footer-address h4::before {
+  content: "";
   position: absolute;
   left: 10;
-  bottom: 0px;
-  background-color: #000000;
-  height:2px;
+  bottom: -10px;
+  background-color: #ffffff;
+  height: 2px;
   box-sizing: border-box;
   width: 75px;
 }
 
-.footer-address ul li
-{
+.footer-address ul li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.footer-address ul li a
-{
+.footer-address ul li a {
   font-size: 17px;
   text-transform: capitalize;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: 300;
-  color: #000000;
+  color: #fff;
+  /*color: rgba(207, 207, 207, 0.908);*/
   display: block;
   transition: all 0.3s ease;
-  margin-left: 0px;
 }
 
-.footer-address ul li a:hover
-{
-  color: #525151 ;
+.footer-address ul li a:hover {
+  color: #93826e;
   padding-left: 8px;
 }
 
-/* -------------------------    Footer Address   ------------------------- */
+/* -------------------------   Footer Address    ------------------------- */
 
-/* -------------------------    Footer Navigation   ------------------------- */
+/* -------------------------   Footer Navigation    ------------------------- */
 
+<<<<<<< HEAD
 .footer-nav
 {
   width: 210px;
   padding: 0 60px;
+=======
+.footer-nav {
+  margin-left: 40px;
+  width: 18%;
+>>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
-.footer-nav h4
-{
-  font-family: 'Times New Roman', Times, serif;
+.footer-nav h4 {
   font-size: 18px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-transform: capitalize;
   margin-bottom: 35px;
   font-weight: 500;
   position: relative;
+  font-family: serif;
 }
 
-.footer-nav h4::before
-{
-  content: '';
+.footer-nav h4::before {
+  content: "";
   position: absolute;
   left: 10;
   bottom: -10px;
-  background-color: #000000;
-  height:2px;
+  background-color: #ffffff;
+  height: 2px;
   box-sizing: border-box;
   width: 75px;
 }
 
-.footer-nav ul li
-{
+.footer-nav ul li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.footer-nav ul li a
-{
+.footer-nav ul li a {
   font-size: 17px;
   text-transform: capitalize;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: 300;
-  color: #000000;
+  color: #ffffff;
   display: block;
   transition: all 0.3s ease;
 }
 
-.footer-nav ul li a:hover
-{
-  color: #525151 ;
+.footer-nav ul li a:hover {
+  color: #93826e;
   padding-left: 8px;
 }
 
-/* -------------------------    Footer Navigation   ------------------------- */
+/* -------------------------   Footer Navigation   ------------------------- */
 
-/* -------------------------    Footer Founders   ------------------------- */
+/* -------------------------   Footer Founders  ------------------------- */
 
-.footer-founders
-{
-  margin-left: 39px;
-  width: 150px;
-  padding: 0 15px;
+.footer-founder {
+  width: 18%;
+  margin-left: 30px;
 }
 
-.footer-founders h4
-{
-  font-family: 'Times New Roman', Times, serif;
+.footer-founder h4 {
   font-size: 18px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-transform: capitalize;
   margin-bottom: 35px;
+  font-family: serif;
   font-weight: 500;
   position: relative;
 }
 
-.footer-founders h4::before
-{
-  content: '';
+.footer-founder h4::before {
+  content: "";
   position: absolute;
   left: 10;
   bottom: -10px;
-  background-color: #000000;
-  height:2px;
+  background-color: #ffffff;
+  height: 2px;
   box-sizing: border-box;
   width: 75px;
 }
 
-.footer-founders ul li
-{
+.footer-founder ul li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.footer-founders ul li a
-{
-  line-height: 25px;
+.footer-founder ul li a {
   font-size: 17px;
   text-transform: capitalize;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: 300;
-  color: #000000;
+  color: #ffffff;
   display: block;
   transition: all 0.3s ease;
 }
 
-.footer-founders ul li a:hover
-{
-  color: #525151 ;
+.footer-founder ul li a:hover {
+  color: #93826e;
   padding-left: 8px;
 }
 
-/* -------------------------    Footer Founders   ------------------------- */
+/* -------------------------   Footer Founders  ------------------------- */
 
-/* -------------------------    Footer Follow   ------------------------- */
+/* -------------------------   Footer Social Media  ------------------------- */
 
+<<<<<<< HEAD
 .footer-social
 {
   margin-left: 70px;
+=======
+.footer-social {
+  width: 18%;
+  margin-left: 21px;
+>>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
-.footer-social h4
-{
-  font-family: 'Times New Roman', Times, serif;
+.footer-social h4 {
   font-size: 18px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-transform: capitalize;
   margin-bottom: 35px;
+  font-family: serif;
   font-weight: 500;
   position: relative;
 }
 
-.footer-social h4::before
-{
-  content: '';
+.footer-social h4::before {
+  content: "";
   position: absolute;
   left: 10;
   bottom: -10px;
-  background-color: #000000;
-  height:2px;
+  background-color: #ffffff;
+  height: 2px;
   box-sizing: border-box;
   width: 75px;
 }
 
-.icon
-{
-  font-size: 2rem;
+.footer-social ul li:not(:last-child) {
+  margin-bottom: 10px;
 }
 
-
-/* -------------------------    Footer Follow   ------------------------- */
-
-/* -------------------------    Footer Icons   ------------------------- */
-
-.icon-address
-{
-  font-size: 1.5rem;
-  color: #F9004D;
-  margin-left: -921px;
-  margin-top: 57px;
+.footer-social ul li a {
+  font-size: 17px;
+  text-transform: capitalize;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  display: block;
+  transition: all 0.3s ease;
 }
 
-.icon-envelope
-{
-  font-size: 1.5rem;
-  color: #F9004D;
-  margin-left: -921px;
-  margin-top: 88px;
+.footer-social ul li a:hover {
+  color: #93826e;
+  padding-left: 8px;
 }
 
-/* -------------------------    Footer Icons   ------------------------- */
+.footer-social .social_media ul {
+  display: flex;
+}
 
-/* -------------------------    Contact   ------------------------- */
+.footer-social .social_media ul li {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(to right, #f9004d, #f9004d);
+  margin-right: 10px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 45px;
+}
 
+.social_media ul li a {
+  color: #ffffff;
+  display: block;
+  font-size: 1px;
+}
+
+.footer-social .social-media:hover {
+  color: #fbfcff;
+  background-color: white;
+}
+
+.footer-social .logo-image img
+{
+    width: 14%;
+    margin-left: 770px;
+}
+
+/* -------------------------   Footer Social Media    ------------------------- */
+
+/* -------------------------   Contact Start    ------------------------- */
+
+.footer-contact {
+  width: 18%;
+  margin-left: 21px;
+  margin-top: -4px;
+}
+
+.footer-contact h4 {
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+  font-family: serif;
+}
+
+.footer-contact h4::before {
+  content: "";
+  position: absolute;
+  left: 10;
+  bottom: -10px;
+  background-color: #ffffff;
+  height: 2px;
+  box-sizing: border-box;
+  width: 75px;
+}
+
+.footer-contact ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+<<<<<<< HEAD
 .footer-contact
 {
   margin-left: 70px;
 }
 .footer-contact h4
+=======
+.footer-contact ul li a {
+  font-size: 17px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-contact ul li a:hover {
+  color: #93826e;
+  padding-left: 8px;
+}
+
+.footer-contact button {
+  background: #f9004d;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 12px 18px;
+  border-radius: 30px;
+  transition: 0.4s;
+  margin-left: 4px;
+}
+
+.footer-contact button:hover {
+  background: black;
+  border: 2px solid #f9004d;
+  cursor: pointer;
+}
+
+/*.contact h4
+>>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
@@ -307,7 +411,8 @@
     background: transparent;
     border: 2px solid #F9004D;
     cursor: pointer;
-  }
+  }*/
 
-/* -------------------------    Footer End    ------------------------- */
+/* -------------------------   Contact End    ------------------------- */
 
+/* -------------------------   Footer End    ------------------------- */

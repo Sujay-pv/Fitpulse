@@ -17,7 +17,7 @@ const Exercise = () => {
         <img className='image' src="https://www.muscleandfitness.com/wp-content/uploads/2020/01/Young-Man-Doing-Bicep-Curl-TShirt.jpg?quality=86&strip=all" height="210px" width="210px" alt="" ></img>
         <br></br>
         <br></br>
-        <h3 className="text">30 Days Challenge</h3>
+        <h3 className="text">4 Weeks Challenge</h3>
         <br></br>
         <button className="button">Start Now!</button>
       </div>
@@ -30,7 +30,7 @@ const Exercise = () => {
         <img className='image' src="https://hips.hearstapps.com/hmg-prod/images/dumbbell-workout-royalty-free-image-628023568-1541525265.jpg?resize=1200:*" height="210px" width="210px"  alt=""></img>
         <br></br>
         <br></br>
-        <h3 className="text">60 Days Challenge</h3>
+        <h3 className="text">6 Weeks Challenge</h3>
         <br></br>
         <button className="button">Start Now!</button>
       </div>
@@ -43,12 +43,14 @@ const Exercise = () => {
         <img className='image' src="https://cdn.muscleandstrength.com/sites/default/files/field/image/article/best_bicep_exercises_-_400x250.jpg"  height="210px" width="210px" alt=""></img>
         <br></br>
         <br></br>
-        <h3 className="text">90 Days Challenge</h3>
+        <h3 className="text">8 Weeks Challenge</h3>
         <br></br>
         <button className="button">Start Now!</button>
       </div>
     </div>
 
+    <br></br>
+    <br></br>
     <br></br>
     <br></br>
     <br></br>
