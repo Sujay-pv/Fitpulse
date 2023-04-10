@@ -1,4 +1,4 @@
--------------------------    Footer Start   -------------------------
+/* -------------------------    Footer Start   ------------------------- */
 * {
   padding: 0;
   margin: 0;
@@ -8,12 +8,11 @@
 
 .footer
 {
-  /* background-color: rgb(203, 195, 177); */
-  background-color: black;
-  padding: 70px 0;
+  background-color: rgb(203, 195, 177);
+  padding: 70px 30px;
 }
 
-/* .container
+.container
 {
   max-width: 1200px;
   margin: auto;
@@ -22,12 +21,12 @@
 
 .footer .container .row
 {
-  margin-left: -450px;
-} */
+  margin-left: 10px;
+}
 
 /* -------------------------    Footer Address   ------------------------- */
 
-/* .footer-address
+.footer-address
 {
   width: 210px;
   padding: 0 15px;
@@ -78,16 +77,16 @@
 {
   color: #525151 ;
   padding-left: 8px;
-} */
+}
 
 /* -------------------------    Footer Address   ------------------------- */
 
 /* -------------------------    Footer Navigation   ------------------------- */
 
-/* .footer-nav
+.footer-nav
 {
   width: 210px;
-  padding: 0 15px;
+  padding: 0 60px;
 }
 
 .footer-nav h4
@@ -134,13 +133,13 @@
 {
   color: #525151 ;
   padding-left: 8px;
-} */
+}
 
 /* -------------------------    Footer Navigation   ------------------------- */
 
 /* -------------------------    Footer Founders   ------------------------- */
 
-/* .footer-founders
+.footer-founders
 {
   margin-left: 39px;
   width: 150px;
@@ -192,16 +191,15 @@
 {
   color: #525151 ;
   padding-left: 8px;
-} */
+}
 
 /* -------------------------    Footer Founders   ------------------------- */
 
 /* -------------------------    Footer Follow   ------------------------- */
 
-/* .footer-social
+.footer-social
 {
-  margin-top: 264px;
-  margin-left: -370px;
+  margin-left: 70px;
 }
 
 .footer-social h4
@@ -230,14 +228,14 @@
 .icon
 {
   font-size: 2rem;
-} */
+}
 
 
 /* -------------------------    Footer Follow   ------------------------- */
 
 /* -------------------------    Footer Icons   ------------------------- */
 
-/* .icon-address
+.icon-address
 {
   font-size: 1.5rem;
   color: #F9004D;
@@ -251,23 +249,34 @@
   color: #F9004D;
   margin-left: -921px;
   margin-top: 88px;
-} */
+}
 
 /* -------------------------    Footer Icons   ------------------------- */
 
 /* -------------------------    Contact   ------------------------- */
 
-/* .contact h4
+.footer-contact
+{
+  margin-left: 70px;
+}
+.footer-contact h4
+{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+  color: #000000;
+}
+
+.footer-contact ul li a
 {
   color: #000000;
 }
 
-.contact ul li a
-{
-  color: #000000;
-}
-
-.contact h4::before
+.footer-contact h4::before
 {
   content: '';
   position: absolute;
@@ -279,8 +288,10 @@
   width: 75px;
 }
 
-.contact button
+.footer-contact button
   {
+    margin-top: 150px;
+    margin-left: -200px;
     background: #F9004D;
     color: rgb(210, 208, 208);
     text-decoration: none;
@@ -291,26 +302,12 @@
     transition: .4s;
   }
 
-  .contact button:hover
+  .footer-contact button:hover
   {
     background: transparent;
     border: 2px solid #F9004D;
     cursor: pointer;
-  } */
+  }
 
 /* -------------------------    Footer End    ------------------------- */
 
-
-.footercontainer{
-  color: white;
-  display: flex;
-
-}
-.footercontainer img{
-  height: 240px;
-  width: 240px;
-  display: inline-block;
-}
-.address{
-  display: block;
-}
