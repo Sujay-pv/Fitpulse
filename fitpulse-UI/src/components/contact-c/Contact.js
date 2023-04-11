@@ -17,13 +17,15 @@ function Contact() {
       .then(
         (result) => {
           console.log(result.text);
+          alert("Your Message has been Sent");
+          window.location.replace("/");
         },
         (error) => {
           console.log(error.text);
         }
       );
     event.target.reset();
-    
+
   };
 
   return (

@@ -52,7 +52,6 @@ export default function Navbar() {
             {/*<a href="#contact">Contact&nbsp;&nbsp;&nbsp;&nbsp;</a>*/}
             <Link to="/contact">Contact&nbsp;&nbsp;&nbsp;&nbsp;</Link>
           </li>
-
           {uemail != null ? (
             <Link onClick={Logout}>Logout</Link>
           ) : (

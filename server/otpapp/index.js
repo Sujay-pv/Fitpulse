@@ -14,7 +14,7 @@ app.use(cookieparser());
 
 
 
-const authToken = '38c2b334a856647b277bb3c453c96db9'; // Your Auth Token from www.twilio.com/console
+const authToken = '38c2b334a856647b277bb3c453c96db9'; // my Auth Token from www.twilio.com/console
 const accountSid = 'AC196157eb740751fafd18c37842b2377d'; //deatils of twilio
 
 const client = require('twilio')(accountSid, authToken);
@@ -40,7 +40,7 @@ app.post("/sendotp", async (req, res) => {
     lowerCaseAlphabets: false,
     digits: true,
   });
-  console.log(otp);
+  //console.log(otp);
   try {
     await postModel.create({ otp, mobileNumber }).then((response) => {
       sendOTP(otp, mobileNumber);
@@ -60,7 +60,6 @@ app.post("/verifyotp", async (req, res) => {
         console.log("Validated successfully", otp);
         res.json({ mesg: "Validated successfully" });
       } else {
-        // res.json({mesg : 'Invalid OTP'})
         res.status(400).json({ mesg: "Invalid OTP" });
       }
     });
@@ -132,10 +131,7 @@ app.post("/login", async (req, res) => {
   }
 });
 app.post('/verifydata', async(req,res)=>{
-  const  { email,mobileNumber } = req.body;
-  // if(!email || !mobileNumber){
-  //   res.status(400).json({mesg : 'Invalid mail or mobile number'})
-  // }
+  const  { email/*,mobileNumber*/ } = req.body;
   console.log(email);
   try {
     await createUser.find({email : email}).then(response=>{
@@ -144,7 +140,8 @@ app.post('/verifydata', async(req,res)=>{
       if(list.length > 0){
         res.status(400).json({mesg : 'Mail already exists'})
       }else{
-        validateMobileNumber(mobileNumber, res)
+        //validateMobileNumber(mobileNumber, res)
+        res.json({status:"ok", message : 'Valid mail id'})
       }
     })
    
@@ -153,7 +150,7 @@ app.post('/verifydata', async(req,res)=>{
   }
 });
 
-async function  validateMobileNumber (mobileNumber, res){
+/*async function  validateMobileNumber (mobileNumber, res){
   await createUser.find({mobileNumber : mobileNumber}).then(response=>{
     const list = response.filter(user=>user.mobileNumber==mobileNumber)
     console.log('response mobileNumber',list)
@@ -164,7 +161,7 @@ async function  validateMobileNumber (mobileNumber, res){
     }
   })
 }
-
+*/
 // app.get('/', async(req,res)=>{
 //   try {
 //     const posts = await postModel.find();
@@ -213,10 +210,7 @@ app.post("/createBooking", async (req, res) => {
 
 
 app.post('/verifydatabooking', async(req,res)=>{
-  const  { email,mobileNumber } = req.body;
-  // if(!email || !mobileNumber){
-  //   res.status(400).json({mesg : 'Invalid mail or mobile number'})
-  // }
+  const  { email/*,mobileNumber*/ } = req.body;
   console.log(email);
   try {
     await createBooking.find({email : email}).then(response=>{
@@ -225,7 +219,8 @@ app.post('/verifydatabooking', async(req,res)=>{
       if(list.length > 0){
         res.status(400).json({mesg : 'Booking with this Mail already exists'})
       }else{
-        validateMobileNumberbooking(mobileNumber, res)
+       // validateMobileNumberbooking(mobileNumber, res)
+       res.json({status:"ok", message : 'Valid mail id'})
       }
     })
    
@@ -234,7 +229,7 @@ app.post('/verifydatabooking', async(req,res)=>{
   }
 });
 
-async function  validateMobileNumberbooking (mobileNumber, res){
+/*async function  validateMobileNumberbooking (mobileNumber, res){
   await createBooking.find({mobileNumber : mobileNumber}).then(response=>{
     const list = response.filter(booking=>booking.mobileNumber==mobileNumber)
     console.log('response mobileNumber',list)
@@ -244,7 +239,7 @@ async function  validateMobileNumberbooking (mobileNumber, res){
       res.json({status:"ok", message : 'Valid mail id and mobile number'})
     }
   })
-}
+}*/
 
 
 

@@ -2,11 +2,10 @@ import React, { useState} from "react";
 import "./css-files/bookingpage.css";
 import axios from 'axios';
 /*import { Link, redirect } from 'react-router-dom';*/
-import { Footer } from "./Footer-c/Footer";
 
 
 //testing feature
-import emailjs from '@emailjs/browser';
+//import emailjs from '@emailjs/browser';
 
 
 const BookingPage = () => {
@@ -23,13 +22,6 @@ const BookingPage = () => {
   const [otpResponse, setOtpResponse] = useState(false);
   const [otp, setOTP] = useState("");
 
-  
-  
-
-
-
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
@@ -39,7 +31,7 @@ const BookingPage = () => {
       url: `${BASE_URL}/verifydatabooking`,
       data: {
         email: email,
-        mobileNumber: number,
+        //mobileNumber: number,
       }
     }).then(response=>{
       initiateOTP();
@@ -47,7 +39,6 @@ const BookingPage = () => {
       alert(erro?.response?.data?.mesg)
     });
    
-   //initiateOTP();
    
 //tesingfeature
 
@@ -57,18 +48,10 @@ const BookingPage = () => {
    }, (error) => {
        console.log(error.text);
    });
-
+*/
   
    
-  
-    /*console.log({
-      name,
-      email,
-      number,
-      gymLocation,
-      membershipType,
-      startDate
-    });*/
+
   };
 
 
@@ -107,11 +90,6 @@ const BookingPage = () => {
     });
   };
 
-
-  
-
-
-
    const handleVerifyOTP = (event) => {
     event.preventDefault();
     axios({
@@ -122,7 +100,7 @@ const BookingPage = () => {
         id : otpResponse?.id
       }
     }).then(response=>{
-      alert("otp verified")
+      //alert("otp verified")
       initiateBooking()
     }, erro =>{
       alert("Invalid otp try again")
@@ -135,7 +113,7 @@ const BookingPage = () => {
 
  
 
-
+//diableing the prs date in calender
   let dateObj = new Date();
   let month = String(dateObj.getMonth() + 1).padStart(2, '0');
   let day = String(dateObj.getDate()).padStart(2, '0');
