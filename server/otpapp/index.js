@@ -31,6 +31,9 @@ const sendOTP = async (otp, mobileNumber) => {
     })
     .then((message) => console.log(message.sid));
 };
+
+
+
 //CURD Operations
 app.post("/sendotp", async (req, res) => {
   const { mobileNumber } = req.body;
@@ -68,6 +71,73 @@ app.post("/verifyotp", async (req, res) => {
   }
 });
 
+
+app.post("/sendotplogin", async (req, res) => {
+  const { emailuser } = req.body;
+  try {
+    await createUser.find({ email: emailuser }).then((response) => {
+      console.log(response);
+        mobileNumber=response[0].mobileNumber
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+
+  const otp = otpGenerator.generate(6, {
+    upperCaseAlphabets: false,
+    specialChars: false,
+    lowerCaseAlphabets: false,
+    digits: true,
+  });
+  //console.log(otp);
+  try {
+    await postModel.create({ otp, mobileNumber }).then((response) => {
+      sendOTP(otp, mobileNumber);
+      res.json({ mesg: "OTP sent successfully", id: response.id });
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
+
+
+app.post("/verifyotplogin", async (req, res) => {
+  const { otp, id } = req.body;
+  console.log(otp, id);
+  try {
+    await postModel.findById(id).then((response) => {
+      console.log("response", response);
+      if (response && response.otp == otp) {
+        console.log("Validated successfully", otp);
+        res.json({ mesg: "Validated successfully" });
+      } else {
+        res.status(400).json({ mesg: "Invalid OTP" });
+      }
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post("/createUser", async (req, res) => {
   console.log("Create User called");
   const { name, mobileNumber, email, password } = req.body;
@@ -87,6 +157,9 @@ app.post("/createUser", async (req, res) => {
     //  res.status(500).send(error);
   }
 });
+
+
+
 // app.post('/validateotp', async(req,res)=>{
 //   const  { mobileNumber , otp} = req.body;
 //   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -104,6 +177,9 @@ app.post("/createUser", async (req, res) => {
 //     res.status(500).send(error);
 //   }
 // });
+
+
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -117,11 +193,9 @@ app.post("/login", async (req, res) => {
           mailID: email,
           password,
         };
-        //  const token = jwt.sign(data, jwtSecretKey);
+       
         console.log("im here");
         res.cookie("tokens", email).json("ok");
-
-        // res.json({status : 'ok' ,mesg : 'Validated successfully'})
       } else {
         res.status(401).send({ mesg: "Invalid email Id or password" });
       }
