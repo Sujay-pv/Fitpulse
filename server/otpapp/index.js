@@ -114,17 +114,6 @@ app.post("/verifyotplogin", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
 app.post("/forgotpassword", async (req, res) => {
   const { email } = req.body;
   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -143,10 +132,8 @@ app.post("/forgotpassword", async (req, res) => {
   }
 });
 
-
-
 app.post("/resetpassword", async (req, res) => {
-  const { email,password } = req.body;
+  const { email, password } = req.body;
   // const otp = Math.floor(1000 + Math.random() * 9000);
   // console.log(title,otp);
   try {
@@ -159,22 +146,6 @@ app.post("/resetpassword", async (req, res) => {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> c2dcada71561c13f27e6bb41ea5be06e063c7cfb
 app.post("/createUser", async (req, res) => {
   console.log("Create User called");
   const { name, mobileNumber, email, password } = req.body;
@@ -337,6 +308,23 @@ app.post("/verifydatabooking", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+// app.post("/blockUser", async (req, res) => {
+//   const { email } = req.body;
+//   console.log(email);
+//   try {
+//     await blockedModel.create({ email }).then(
+//       (response) => {
+//         res.json({ status: "ok", message: "Successfully blocked user" });
+//       },
+//       (err) => {
+//         res.status(400).json({ status: "bad request" });
+//       }
+//     );
+//   } catch (error) {
+//     res.status(500).send(error);
+//   }
+// });
 
 /*async function  validateMobileNumberbooking (mobileNumber, res){
   await createBooking.find({mobileNumber : mobileNumber}).then(response=>{

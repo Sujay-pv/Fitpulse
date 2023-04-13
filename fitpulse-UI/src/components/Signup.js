@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import "./css-files/Signup.css";
 import { Link /*, redirect */ } from "react-router-dom";
-import { Box, Avatar, TextField, Button, Typography,Link as Nv } from '@material-ui/core'
+import {
+  Box,
+  Avatar,
+  TextField,
+  Button,
+  Typography,
+  Link as Nv,
+} from "@material-ui/core";
 import axios from "axios";
 
 function SignUp() {
@@ -13,32 +20,35 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showOTPField, setShowOTPField] = useState(false);
   const [otpResponse, setOtpResponse] = useState(false);
+  var count = 0;
 
   const [otp, setOTP] = useState("");
   /*const [otpemail, setOTPemail] = useState("");*/
 
   const handleSubmit = (event) => {
     event.preventDefault();
-   
-    if(mobile && mobile.length ===10){
-      if(password.length>=6){
-        if(password===confirmPassword){
+
+    if (mobile && mobile.length === 10) {
+      if (password.length >= 6) {
+        if (password === confirmPassword) {
           //verifyemail
-      axios({
-        method: 'post',
-        url: `${BASE_URL}/verifydata`,
-        data: {
-          email: email,
-          //mobileNumber: mobile,
-        }
-      }).then(response=>{
-        initiateOTP();
-      }, erro =>{
-        alert(erro?.response?.data?.mesg)
-      });
+          axios({
+            method: "post",
+            url: `${BASE_URL}/verifydata`,
+            data: {
+              email: email,
+              //mobileNumber: mobile,
+            },
+          }).then(
+            (response) => {
+              initiateOTP();
+            },
+            (erro) => {
+              alert(erro?.response?.data?.mesg);
+            }
+          );
           //initiateOTP()
-        }
-        else{
+        } else {
           alert("Password did not match");
         }
       } else {
@@ -50,11 +60,26 @@ function SignUp() {
     /*console.log(`Name: ${name}, Email: ${email}, Mobile: ${mobile}, Password: ${password}, Confirm Password: ${confirmPassword}, OTP: ${otp}`);*/
   };
   const [counter, setCounter] = React.useState(59);
-    React.useEffect(() => {
-        const timer =
-        counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-        return () => clearInterval(timer);
-    }, [counter]);
+  React.useEffect(() => {
+    const timer =
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+    return () => clearInterval(timer);
+  }, [counter]);
+
+  // const blockAccount = (event) => {
+  //   // event.preventDefault();
+  //   console.log("blocked account is called, ", email);
+  //   axios({
+  //     method: "post",
+  //     url: `${BASE_URL}/blockUser`,
+  //     data: {
+  //       email: email,
+  //     },
+  //   }).then((response) => {
+  //     alert("three consecutive failures, ID blocked!");
+  //     window.location.replace("/");
+  //   });
+  // };
 
   const initiateOTP = (event) => {
     // event.preventDefault();
@@ -99,11 +124,15 @@ function SignUp() {
         otp: otp,
         id: otpResponse?.id,
       },
-    }).then((response) => {
-      initiateCreateUser();
-    }, erro =>{
-      alert("Invalid otp")
-    });
+    }).then(
+      (response) => {
+        initiateCreateUser();
+      },
+      (erro) => {
+        
+        alert("Invalid otp");
+      }
+    );
     //console.log(`OTP: ${otp} verified`);
   };
 
@@ -196,7 +225,16 @@ function SignUp() {
                 onChange={(event) => setOTP(event.target.value)}
                 required
               />
-               <Box mt={3} ><Typography fontWeight={400} align="center" color='white'> Resend OTP in <span style={{color:"green",fontWeight:"bold"}}> 00:{counter}</span> </Typography></Box>
+              <Box mt={3}>
+                <Typography fontWeight={400} align="center" color="white">
+                  {" "}
+                  Resend OTP in{" "}
+                  <span style={{ color: "green", fontWeight: "bold" }}>
+                    {" "}
+                    00:{counter}
+                  </span>{" "}
+                </Typography>
+              </Box>
             </div>
             <button type="submit" className="btn-signup">
               Verify OTP
