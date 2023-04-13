@@ -6,6 +6,7 @@ import Signup from './components/Signup';
  import BookingPage from './components/BookingPage';
 import Contact from './components/contact-c/Contact';
  import Bookingconfirm from './components/Bookingconfirm';
+ import Forgotpassword from './components/Forgotpassword';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/BookingPage" element={<BookingPage />}/>
               <Route path="/Contact" element={<Contact/>}/>
               <Route path="/Bookingconfirm" element={<Bookingconfirm/>}/>
+              <Route path='/Forgotpassword' element={<Forgotpassword/>}/>
                  
     </Routes>
   );

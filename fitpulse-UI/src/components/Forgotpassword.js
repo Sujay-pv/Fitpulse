@@ -1,41 +1,35 @@
-import React, { useState } from "react";
-import "./css-files/Login.css";
+import React, { useState }  from 'react'
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const BASE_URL = "http://localhost:3007";
-  const [showOTPField, setShowOTPField] = useState(false);
-  const [otpResponse, setOtpResponse] = useState(false);
+function Forgotpassword() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const BASE_URL = "http://localhost:3007";
+    const [showOTPField, setShowOTPField] = useState(false);
+    const [otpResponse, setOtpResponse] = useState(false);
+    const [otp, setOTP] = useState("");
+    const [showresetPassword,setrestpassword] = useState(false);
 
-  const [otp, setOTP] = useState("");
-
+    
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post(
-        "http://localhost:3007/login",
-        { email: email, password: password },
-        { withCredentials: true }
-      )
-      // axios({
-      //   method: 'post',
-      //   url: `${BASE_URL}/login`,
+      axios({
+        method: 'post',
+        url: `${BASE_URL}/forgotpassword`,
 
-      //   data: {
-      //     email: email,
-      //     password: password,
-      //   }
-      // })
+         data: {
+          email: email,
+           //password: password,
+         }
+       })
       .then(
         (response) => {
           console.log(response);
           initiateOTP();
         },
         (error) => {
-          alert("Invalid details");
+          alert("Invalid email");
         }
       );
   };
@@ -67,19 +61,40 @@ function Login() {
         id : otpResponse?.id
       }
     }).then(response=>{
-      window.location.replace("/");
+
+      setShowOTPField(false)
+      setrestpassword(true)
+      alert("The otp is comming")
     }, erro =>{
       alert("Invalid otp")
     });
     //console.log(`OTP: ${otp} verified`);
   };
 
+const handleReset=(event)=>{
+ 
+  axios({
+    method: 'post',
+    url: `${BASE_URL}/resetpassword`,
+    data: {
+      email:email,
+      password:password,
+    }
+  }).then(response=>{
+    alert("Password Reset Successful")
+    window.location.replace("/Login");
+  }, erro =>{
+    alert("Try again")});
+};
+
+
+
 
   return (
     <div id="login-body">
       <div className="login-container">
-      {!showOTPField && <form onSubmit={handleSubmit} id="login-form">
-          <h2 id="loginheading">Login</h2>
+      {!showOTPField && !showresetPassword && <form onSubmit={handleSubmit} id="login-form">
+          <h2 id="loginheading">Reset Password</h2>
           <div className="form-group-login">
             <input
               className="input-login"
@@ -91,28 +106,10 @@ function Login() {
               required
             />
           </div>
-          <div className="form-group-login">
-            <input
-              className="input-login"
-              type="password"
-              id="password-login"
-              value={password}
-              placeholder="Password"
-              onChange={(event) => setPassword(event.target.value)}
-              required
-            />
-          </div>
-          <p id="login_forgot_password"><Link  to="/Forgotpassword" id="login_forgot_password_link">Forgot Password ?</Link></p>
           <button type="submit" className="btn-login">
-            Login
+            Reset
           </button>
-          <p id="signuplink-container">
-            Don't have an account ?{" "}
-            <Link to="/Signup" id="signuplink">
-              Signup
-            </Link>{" "}
-          </p>
-        </form>}
+          </form>}
         {showOTPField &&<form onSubmit={handleVerifyOTP} className="form-signup">
       
           <div className="form-groupsignup">
@@ -131,9 +128,31 @@ function Login() {
             Verify OTP
           </button>
         </form>}
+        {showresetPassword && <form onSubmit={handleReset} className="form-signup">
+      
+      <div className="form-groupsignup">
+        <input
+        className="input-sigup"
+          type="password"
+          id="otp-signup"
+          minlength="6"
+          value={password}
+          placeholder="New Password"
+          onChange={(event) => setPassword(event.target.value)}
+          required
+        />
+        
+      </div>
+      <button type="submit" className="btn-signup">
+        Reset
+      </button>
+    </form>}
+
+
+
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Forgotpassword

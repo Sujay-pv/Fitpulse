@@ -8,6 +8,7 @@ const postModel = require("./postModel");
 const createUser = require("./createUser");
 const createBooking = require("./createBooking");
 const cookieparser = require("cookie-parser");
+const usermodel = require("./createUser");
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing
 app.use(cookieparser());
@@ -113,6 +114,67 @@ app.post("/verifyotplogin", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+app.post("/forgotpassword", async (req, res) => {
+  const { email } = req.body;
+  // const otp = Math.floor(1000 + Math.random() * 9000);
+  // console.log(title,otp);
+  try {
+    await createUser.find({ email: email }).then((response) => {
+      console.log(response);
+      if (response[0].email == email) {
+        res.json({ status: "ok", message: "valid email" });
+      } else {
+        res.status(401).send({ mesg: "Invalid email Id" });
+      }
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
+
+app.post("/resetpassword", async (req, res) => {
+  const { email,password } = req.body;
+  // const otp = Math.floor(1000 + Math.random() * 9000);
+  // console.log(title,otp);
+  try {
+    await createUser.find({ email: email }).then((response) => {
+      console.log(response);
+      //usermodels.update({'email':"dhanusheagle2@gmail.com"},{$set:{'password':"resetpassowrd"}})
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> c2dcada71561c13f27e6bb41ea5be06e063c7cfb
 app.post("/createUser", async (req, res) => {
   console.log("Create User called");
   const { name, mobileNumber, email, password } = req.body;
