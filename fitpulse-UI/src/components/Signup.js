@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./css-files/Signup.css";
 import { Link /*, redirect */ } from "react-router-dom";
+import { Box, Avatar, TextField, Button, Typography,Link as Nv } from '@material-ui/core'
 import axios from "axios";
 
 function SignUp() {
@@ -48,6 +49,12 @@ function SignUp() {
     }
     /*console.log(`Name: ${name}, Email: ${email}, Mobile: ${mobile}, Password: ${password}, Confirm Password: ${confirmPassword}, OTP: ${otp}`);*/
   };
+  const [counter, setCounter] = React.useState(59);
+    React.useEffect(() => {
+        const timer =
+        counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+        return () => clearInterval(timer);
+    }, [counter]);
 
   const initiateOTP = (event) => {
     // event.preventDefault();
@@ -189,6 +196,7 @@ function SignUp() {
                 onChange={(event) => setOTP(event.target.value)}
                 required
               />
+               <Box mt={3} ><Typography fontWeight={400} align="center" color='white'> Resend OTP in <span style={{color:"green",fontWeight:"bold"}}> 00:{counter}</span> </Typography></Box>
             </div>
             <button type="submit" className="btn-signup">
               Verify OTP

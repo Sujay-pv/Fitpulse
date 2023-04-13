@@ -9,15 +9,13 @@ const createUser = require("./createUser");
 const createBooking = require("./createBooking");
 const cookieparser = require("cookie-parser");
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
+app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing
 app.use(cookieparser());
 
+const authToken = "aa8c5445962df94338499e6897f0ed5b"; // my Auth Token from www.twilio.com/console
+const accountSid = "AC542564cbc3fe605918c147ceb40e075f"; //deatils of twilio
 
-
-const authToken = '38c2b334a856647b277bb3c453c96db9'; // my Auth Token from www.twilio.com/console
-const accountSid = 'AC196157eb740751fafd18c37842b2377d'; //deatils of twilio
-
-const client = require('twilio')(accountSid, authToken);
+const client = require("twilio")(accountSid, authToken);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,13 +24,11 @@ const sendOTP = async (otp, mobileNumber) => {
   client.messages
     .create({
       body: `Verify OTP ${otp}`,
-      messagingServiceSid: "MG4cbb198c04d07178596a6c5d8a30e7ed",
+      messagingServiceSid: "MG3469e8deb26d744a62d48649e836ebb3",
       to: "+91" + mobileNumber,
     })
     .then((message) => console.log(message.sid));
 };
-
-
 
 //CURD Operations
 app.post("/sendotp", async (req, res) => {
@@ -71,13 +67,12 @@ app.post("/verifyotp", async (req, res) => {
   }
 });
 
-
 app.post("/sendotplogin", async (req, res) => {
   const { emailuser } = req.body;
   try {
     await createUser.find({ email: emailuser }).then((response) => {
       console.log(response);
-        mobileNumber=response[0].mobileNumber
+      mobileNumber = response[0].mobileNumber;
     });
   } catch (error) {
     res.status(500).send(error);
@@ -100,9 +95,6 @@ app.post("/sendotplogin", async (req, res) => {
   }
 });
 
-
-
-
 app.post("/verifyotplogin", async (req, res) => {
   const { otp, id } = req.body;
   console.log(otp, id);
@@ -120,23 +112,6 @@ app.post("/verifyotplogin", async (req, res) => {
     res.status(500).send(error);
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.post("/createUser", async (req, res) => {
   console.log("Create User called");
@@ -158,8 +133,6 @@ app.post("/createUser", async (req, res) => {
   }
 });
 
-
-
 // app.post('/validateotp', async(req,res)=>{
 //   const  { mobileNumber , otp} = req.body;
 //   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -178,8 +151,6 @@ app.post("/createUser", async (req, res) => {
 //   }
 // });
 
-
-
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -193,7 +164,7 @@ app.post("/login", async (req, res) => {
           mailID: email,
           password,
         };
-       
+
         console.log("im here");
         res.cookie("tokens", email).json("ok");
       } else {
@@ -204,21 +175,20 @@ app.post("/login", async (req, res) => {
     res.status(500).send(error);
   }
 });
-app.post('/verifydata', async(req,res)=>{
-  const  { email/*,mobileNumber*/ } = req.body;
+app.post("/verifydata", async (req, res) => {
+  const { email /*,mobileNumber*/ } = req.body;
   console.log(email);
   try {
-    await createUser.find({email : email}).then(response=>{
-      const list = response.filter(user=>user.email==email)
-      console.log('response email',list)
-      if(list.length > 0){
-        res.status(400).json({mesg : 'Mail already exists'})
-      }else{
+    await createUser.find({ email: email }).then((response) => {
+      const list = response.filter((user) => user.email == email);
+      console.log("response email", list);
+      if (list.length > 0) {
+        res.status(400).json({ mesg: "Mail already exists" });
+      } else {
         //validateMobileNumber(mobileNumber, res)
-        res.json({status:"ok", message : 'Valid mail id'})
+        res.json({ status: "ok", message: "Valid mail id" });
       }
-    })
-   
+    });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -256,48 +226,51 @@ app.post('/verifydata', async(req,res)=>{
 // }
 // })
 
-
-
 app.post("/createBooking", async (req, res) => {
   console.log("Create Booking called");
-  const { name, mobileNumber, email,  gymlocation, membershipType, startDate } = req.body;
+  const { name, mobileNumber, email, gymlocation, membershipType, startDate } =
+    req.body;
   //const verificationotp = Math.floor(100000 + Math.random() * 9000);
   // const isOTPVerfied = false
   // console.log(title,otp);
   //add email verification
   try {
-    await createBooking.create({ name, email, mobileNumber, gymlocation, membershipType, startDate }).then(
-      (response) => {
-        res.json({ status: "ok", message: "Successfully created Booking" });
-      },
-      (err) => {
-        res.status(400).json({ status: "bad request" });
-      }
-    );
+    await createBooking
+      .create({
+        name,
+        email,
+        mobileNumber,
+        gymlocation,
+        membershipType,
+        startDate,
+      })
+      .then(
+        (response) => {
+          res.json({ status: "ok", message: "Successfully created Booking" });
+        },
+        (err) => {
+          res.status(400).json({ status: "bad request" });
+        }
+      );
   } catch (error) {
     //  res.status(500).send(error);
   }
 });
 
-
-
-
-
-app.post('/verifydatabooking', async(req,res)=>{
-  const  { email/*,mobileNumber*/ } = req.body;
+app.post("/verifydatabooking", async (req, res) => {
+  const { email /*,mobileNumber*/ } = req.body;
   console.log(email);
   try {
-    await createBooking.find({email : email}).then(response=>{
-      const list = response.filter(booking=>booking.email==email)
-      console.log('response email',list)
-      if(list.length > 0){
-        res.status(400).json({mesg : 'Booking with this Mail already exists'})
-      }else{
-       // validateMobileNumberbooking(mobileNumber, res)
-       res.json({status:"ok", message : 'Valid mail id'})
+    await createBooking.find({ email: email }).then((response) => {
+      const list = response.filter((booking) => booking.email == email);
+      console.log("response email", list);
+      if (list.length > 0) {
+        res.status(400).json({ mesg: "Booking with this Mail already exists" });
+      } else {
+        // validateMobileNumberbooking(mobileNumber, res)
+        res.json({ status: "ok", message: "Valid mail id" });
       }
-    })
-   
+    });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -314,9 +287,6 @@ app.post('/verifydatabooking', async(req,res)=>{
     }
   })
 }*/
-
-
-
 
 app.get("/getcookie", (req, res) => {
   const token = req.cookies;

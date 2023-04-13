@@ -6,16 +6,9 @@
   outline: none;
 }
 
-<<<<<<< HEAD
-.footer
-{
-  background-color: rgb(203, 195, 177);
-  padding: 70px 30px;
-=======
 .container {
   margin: auto;
   font-family: "Times New Roman", Times, serif;
->>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
 .row {
@@ -28,16 +21,10 @@
   justify-content: center;
 }
 
-<<<<<<< HEAD
-.footer .container .row
-{
-  margin-left: 10px;
-=======
 .footer {
   background-image: linear-gradient(#000000, #868686);
   padding: 70px 0;
   border-color: (#f9004d, #000000, #000000, #000000);
->>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
 .icon {
@@ -97,16 +84,9 @@
 
 /* -------------------------   Footer Navigation    ------------------------- */
 
-<<<<<<< HEAD
-.footer-nav
-{
-  width: 210px;
-  padding: 0 60px;
-=======
 .footer-nav {
   margin-left: 40px;
   width: 18%;
->>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
 .footer-nav h4 {
@@ -204,15 +184,9 @@
 
 /* -------------------------   Footer Social Media  ------------------------- */
 
-<<<<<<< HEAD
-.footer-social
-{
-  margin-left: 70px;
-=======
 .footer-social {
   width: 18%;
   margin-left: 21px;
->>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 }
 
 .footer-social h4 {
@@ -322,13 +296,6 @@
   margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
-.footer-contact
-{
-  margin-left: 70px;
-}
-.footer-contact h4
-=======
 .footer-contact ul li a {
   font-size: 17px;
   color: rgb(255, 255, 255);
@@ -363,7 +330,6 @@
 }
 
 /*.contact h4
->>>>>>> 837a8f8715fe24f8e590e651565df7752f0d937c
 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
