@@ -10,7 +10,17 @@ const createBooking = require("./createBooking");
 const cookieparser = require("cookie-parser");
 const usermodel = require("./createUser");
 
+<<<<<<< HEAD
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing
+=======
+
+//test
+
+const blockuser = require("./blockuser");
+//test
+
+app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
+>>>>>>> eb181456b5897ef49e1d99ee3d916bbc8f0dffe8
 app.use(cookieparser());
 
 const authToken = "aa8c5445962df94338499e6897f0ed5b"; // my Auth Token from www.twilio.com/console
@@ -114,6 +124,36 @@ app.post("/verifyotplogin", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+
+
+
+
+//test
+app.post("/blockuser", async (req, res) => {
+  console.log("block User called");
+  const {email} = req.body;
+  console.log(email);
+  try {
+    await blockuser.create({email}).then(
+      (response) => {
+        res.json({ status: "ok", message: "Successfully blocked user" });
+      },
+      (err) => {
+        res.status(400).json({ status: "bad request" });
+      }
+    );
+  } catch (error) {
+    //  res.status(500).send(error);
+  }
+});
+//test
+
+
+
+
+>>>>>>> eb181456b5897ef49e1d99ee3d916bbc8f0dffe8
 app.post("/forgotpassword", async (req, res) => {
   const { email } = req.body;
   // const otp = Math.floor(1000 + Math.random() * 9000);

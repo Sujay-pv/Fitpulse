@@ -7,6 +7,7 @@ import { About } from "./About-c/About";
 import Partner from "./Partner-c/Partner";
 import { Footer } from "./Footer-c/Footer";
 
+
 function Home() {
   const slides = [
     { url: "http://localhost:3000/1.jpeg", title: "image 1" },

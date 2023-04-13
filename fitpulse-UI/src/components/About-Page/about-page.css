@@ -1,0 +1,93 @@
+/* -------------------------  About Start  ------------------------- */
+
+body {
+  background-color: black;
+}
+
+.about {
+  margin-top: 30px;
+}
+
+/* -------------------------  About Section  ------------------------- */
+
+.about-section h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+
+.about-section h5 {
+  color: white;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.about-section span {
+  color: #f9004d;
+  font-size: 26px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.about-section p {
+  margin-left: 300px;
+  width: 57%;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: 1px;
+  line-height: 28px;
+  font-size: 15px;
+  margin-bottom: 45px;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+
+  .about-page img
+  {
+    height: 200px;
+    width: 150px;
+    border:1px  rgb(255, 255, 255);
+    border-radius: 5px;
+  }
+  /* -------------------------  About Section  ------------------------- */
+
+  /* -------------------------  Founder Section  ------------------------- */
+
+  .about-founders
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-row
+  {
+      border: 1px white;
+      width: 15%;
+      padding: 0 15px;
+  }
+
+  .about-row h1
+  {
+      color: white;
+      font-family: 'Times New Roman', Times, serif;
+  }
+
+  .about-row h3
+  {
+      color: white;
+      font-family: 'Times New Roman', Times, serif;
+  }
+
+  .founder-icon
+  {
+      color: #f9004d;
+      font-size: 2rem;
+      margin-left: 5px;
+  }
+
+/* -------------------------  Founder Section  ------------------------- */
+
+/* -------------------------  About End  ------------------------- */
