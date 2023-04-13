@@ -10,6 +10,12 @@ const createBooking = require("./createBooking");
 const cookieparser = require("cookie-parser");
 const usermodel = require("./createUser");
 
+
+//test
+
+const blockuser = require("./blockuser");
+//test
+
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
 app.use(cookieparser());
 
@@ -126,7 +132,25 @@ app.post("/verifyotplogin", async (req, res) => {
 
 
 
-
+//test
+app.post("/blockuser", async (req, res) => {
+  console.log("block User called");
+  const {email} = req.body;
+  console.log(email);
+  try {
+    await blockuser.create({email}).then(
+      (response) => {
+        res.json({ status: "ok", message: "Successfully blocked user" });
+      },
+      (err) => {
+        res.status(400).json({ status: "bad request" });
+      }
+    );
+  } catch (error) {
+    //  res.status(500).send(error);
+  }
+});
+//test
 
 
 

@@ -15,6 +15,16 @@ function SignUp() {
   const [showOTPField, setShowOTPField] = useState(false);
   const [otpResponse, setOtpResponse] = useState(false);
 
+
+
+
+//test
+  const [count,setCount] = useState(1);
+//test
+
+
+
+
   const [otp, setOTP] = useState("");
   /*const [otpemail, setOTPemail] = useState("");*/
 
@@ -55,6 +65,12 @@ function SignUp() {
   };
 
 
+
+
+
+
+
+
   
   const initiateOTP = (event) => {
    // event.preventDefault();
@@ -88,7 +104,21 @@ function SignUp() {
      });
    };
 
-
+const blockuser = (event) =>{
+  axios({
+    method: 'post',
+    url: `${BASE_URL}/blockuser`,
+    data: {
+      email: email,
+      //mobileNumber: mobile,
+    }
+  }).then(response=>{
+    alert("The user is blocked")
+    window.location.replace('/') 
+  }, erro =>{
+    alert(erro?.response?.data?.mesg)
+  });
+}
 
 
 
@@ -106,6 +136,18 @@ function SignUp() {
       initiateCreateUser();
     }, erro =>{
       alert("Invalid otp")
+
+
+//test
+      setCount(count+1)
+      if(count===3){
+        alert('blocking the user...')
+        blockuser();
+      }
+//test
+
+
+
     });
     //console.log(`OTP: ${otp} verified`);
   };
