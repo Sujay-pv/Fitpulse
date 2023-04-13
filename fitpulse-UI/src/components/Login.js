@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import "./css-files/Login.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const BASE_URL = "http://localhost:3007";
+  const [showOTPField, setShowOTPField] = useState(false);
+  const [otpResponse, setOtpResponse] = useState(false);
+
+  const [otp, setOTP] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,27 +31,54 @@ function Login() {
       // })
       .then(
         (response) => {
-          // setShowOTPField(true)
-          //alert('Login sucessfull')
           console.log(response);
-          window.location.replace("/");
-          //setOtpResponse(response)
+          initiateOTP();
         },
         (error) => {
           alert("Invalid details");
         }
       );
-    //
-    // console.log(`Email: ${email}, Password: ${password}`);
   };
-  /*<label htmlFor="email" className="label-login">Email:</label>
+ 
 
- <label htmlFor="password" className="label-login">Password:</label>
-*/
+  const initiateOTP = (event) => {
+    // event.preventDefault();
+   
+     axios({
+       method: 'post',
+       url: `${BASE_URL}/sendotplogin`,
+       data: {
+         emailuser:email,
+       }
+     }).then(response=>{
+       setShowOTPField(true)
+       setOtpResponse(response?.data)
+     });
+   };
+ 
+
+  const handleVerifyOTP = (event) => {
+    event.preventDefault();
+    axios({
+      method: 'post',
+      url: `${BASE_URL}/verifyotplogin`,
+      data: {
+        otp: otp,
+        id : otpResponse?.id
+      }
+    }).then(response=>{
+      window.location.replace("/");
+    }, erro =>{
+      alert("Invalid otp")
+    });
+    //console.log(`OTP: ${otp} verified`);
+  };
+
+
   return (
     <div id="login-body">
       <div className="login-container">
-        <form onSubmit={handleSubmit} id="login-form">
+      {!showOTPField && <form onSubmit={handleSubmit} id="login-form">
           <h2 id="loginheading">Login</h2>
           <div className="form-group-login">
             <input
@@ -70,6 +102,7 @@ function Login() {
               required
             />
           </div>
+          <p id="login_forgot_password"><Link id="login_forgot_password_link">Forgot Password ?</Link></p>
           <button type="submit" className="btn-login">
             Login
           </button>
@@ -79,7 +112,25 @@ function Login() {
               Signup
             </Link>{" "}
           </p>
-        </form>
+        </form>}
+        {showOTPField &&<form onSubmit={handleVerifyOTP} className="form-signup">
+      
+          <div className="form-groupsignup">
+            <input
+            className="input-sigup"
+              type="text"
+              id="otp-signup"
+              value={otp}
+              placeholder="OTP"
+              onChange={(event) => setOTP(event.target.value)}
+              required
+            />
+            
+          </div>
+          <button type="submit" className="btn-signup">
+            Verify OTP
+          </button>
+        </form>}
       </div>
     </div>
   );

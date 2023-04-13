@@ -14,7 +14,7 @@ app.use(cookieparser());
 
 
 
-const authToken = '38c2b334a856647b277bb3c453c96db9'; // Your Auth Token from www.twilio.com/console
+const authToken = '38c2b334a856647b277bb3c453c96db9'; // my Auth Token from www.twilio.com/console
 const accountSid = 'AC196157eb740751fafd18c37842b2377d'; //deatils of twilio
 
 const client = require('twilio')(accountSid, authToken);
@@ -31,6 +31,9 @@ const sendOTP = async (otp, mobileNumber) => {
     })
     .then((message) => console.log(message.sid));
 };
+
+
+
 //CURD Operations
 app.post("/sendotp", async (req, res) => {
   const { mobileNumber } = req.body;
@@ -40,7 +43,7 @@ app.post("/sendotp", async (req, res) => {
     lowerCaseAlphabets: false,
     digits: true,
   });
-  console.log(otp);
+  //console.log(otp);
   try {
     await postModel.create({ otp, mobileNumber }).then((response) => {
       sendOTP(otp, mobileNumber);
@@ -60,7 +63,6 @@ app.post("/verifyotp", async (req, res) => {
         console.log("Validated successfully", otp);
         res.json({ mesg: "Validated successfully" });
       } else {
-        // res.json({mesg : 'Invalid OTP'})
         res.status(400).json({ mesg: "Invalid OTP" });
       }
     });
@@ -68,6 +70,73 @@ app.post("/verifyotp", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+
+app.post("/sendotplogin", async (req, res) => {
+  const { emailuser } = req.body;
+  try {
+    await createUser.find({ email: emailuser }).then((response) => {
+      console.log(response);
+        mobileNumber=response[0].mobileNumber
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+
+  const otp = otpGenerator.generate(6, {
+    upperCaseAlphabets: false,
+    specialChars: false,
+    lowerCaseAlphabets: false,
+    digits: true,
+  });
+  //console.log(otp);
+  try {
+    await postModel.create({ otp, mobileNumber }).then((response) => {
+      sendOTP(otp, mobileNumber);
+      res.json({ mesg: "OTP sent successfully", id: response.id });
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
+
+
+app.post("/verifyotplogin", async (req, res) => {
+  const { otp, id } = req.body;
+  console.log(otp, id);
+  try {
+    await postModel.findById(id).then((response) => {
+      console.log("response", response);
+      if (response && response.otp == otp) {
+        console.log("Validated successfully", otp);
+        res.json({ mesg: "Validated successfully" });
+      } else {
+        res.status(400).json({ mesg: "Invalid OTP" });
+      }
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.post("/createUser", async (req, res) => {
   console.log("Create User called");
@@ -88,6 +157,9 @@ app.post("/createUser", async (req, res) => {
     //  res.status(500).send(error);
   }
 });
+
+
+
 // app.post('/validateotp', async(req,res)=>{
 //   const  { mobileNumber , otp} = req.body;
 //   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -105,6 +177,9 @@ app.post("/createUser", async (req, res) => {
 //     res.status(500).send(error);
 //   }
 // });
+
+
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -118,11 +193,9 @@ app.post("/login", async (req, res) => {
           mailID: email,
           password,
         };
-        //  const token = jwt.sign(data, jwtSecretKey);
+       
         console.log("im here");
         res.cookie("tokens", email).json("ok");
-
-        // res.json({status : 'ok' ,mesg : 'Validated successfully'})
       } else {
         res.status(401).send({ mesg: "Invalid email Id or password" });
       }
@@ -132,10 +205,7 @@ app.post("/login", async (req, res) => {
   }
 });
 app.post('/verifydata', async(req,res)=>{
-  const  { email,mobileNumber } = req.body;
-  // if(!email || !mobileNumber){
-  //   res.status(400).json({mesg : 'Invalid mail or mobile number'})
-  // }
+  const  { email/*,mobileNumber*/ } = req.body;
   console.log(email);
   try {
     await createUser.find({email : email}).then(response=>{
@@ -144,7 +214,8 @@ app.post('/verifydata', async(req,res)=>{
       if(list.length > 0){
         res.status(400).json({mesg : 'Mail already exists'})
       }else{
-        validateMobileNumber(mobileNumber, res)
+        //validateMobileNumber(mobileNumber, res)
+        res.json({status:"ok", message : 'Valid mail id'})
       }
     })
    
@@ -153,7 +224,7 @@ app.post('/verifydata', async(req,res)=>{
   }
 });
 
-async function  validateMobileNumber (mobileNumber, res){
+/*async function  validateMobileNumber (mobileNumber, res){
   await createUser.find({mobileNumber : mobileNumber}).then(response=>{
     const list = response.filter(user=>user.mobileNumber==mobileNumber)
     console.log('response mobileNumber',list)
@@ -164,7 +235,7 @@ async function  validateMobileNumber (mobileNumber, res){
     }
   })
 }
-
+*/
 // app.get('/', async(req,res)=>{
 //   try {
 //     const posts = await postModel.find();
@@ -213,10 +284,7 @@ app.post("/createBooking", async (req, res) => {
 
 
 app.post('/verifydatabooking', async(req,res)=>{
-  const  { email,mobileNumber } = req.body;
-  // if(!email || !mobileNumber){
-  //   res.status(400).json({mesg : 'Invalid mail or mobile number'})
-  // }
+  const  { email/*,mobileNumber*/ } = req.body;
   console.log(email);
   try {
     await createBooking.find({email : email}).then(response=>{
@@ -225,7 +293,8 @@ app.post('/verifydatabooking', async(req,res)=>{
       if(list.length > 0){
         res.status(400).json({mesg : 'Booking with this Mail already exists'})
       }else{
-        validateMobileNumberbooking(mobileNumber, res)
+       // validateMobileNumberbooking(mobileNumber, res)
+       res.json({status:"ok", message : 'Valid mail id'})
       }
     })
    
@@ -234,7 +303,7 @@ app.post('/verifydatabooking', async(req,res)=>{
   }
 });
 
-async function  validateMobileNumberbooking (mobileNumber, res){
+/*async function  validateMobileNumberbooking (mobileNumber, res){
   await createBooking.find({mobileNumber : mobileNumber}).then(response=>{
     const list = response.filter(booking=>booking.mobileNumber==mobileNumber)
     console.log('response mobileNumber',list)
@@ -244,7 +313,7 @@ async function  validateMobileNumberbooking (mobileNumber, res){
       res.json({status:"ok", message : 'Valid mail id and mobile number'})
     }
   })
-}
+}*/
 
 
 

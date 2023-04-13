@@ -28,7 +28,7 @@ function SignUp() {
         url: `${BASE_URL}/verifydata`,
         data: {
           email: email,
-          mobileNumber: mobile,
+          //mobileNumber: mobile,
         }
       }).then(response=>{
         initiateOTP();
