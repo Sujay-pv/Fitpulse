@@ -102,7 +102,7 @@ function Login() {
               required
             />
           </div>
-          <p id="login_forgot_password"><Link id="login_forgot_password_link">Forgot Password ?</Link></p>
+          <p id="login_forgot_password"><Link  to="/Forgotpassword" id="login_forgot_password_link">Forgot Password ?</Link></p>
           <button type="submit" className="btn-login">
             Login
           </button>
