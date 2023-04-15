@@ -331,15 +331,22 @@
 
 /*.contact h4
 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
   color: #000000;
 }
 
-.contact ul li a
+.footer-contact ul li a
 {
   color: #000000;
 }
 
-.contact h4::before
+.footer-contact h4::before
 {
   content: '';
   position: absolute;
@@ -351,8 +358,10 @@
   width: 75px;
 }
 
-.contact button
+.footer-contact button
   {
+    margin-top: 150px;
+    margin-left: -200px;
     background: #F9004D;
     color: rgb(210, 208, 208);
     text-decoration: none;
@@ -363,7 +372,7 @@
     transition: .4s;
   }
 
-  .contact button:hover
+  .footer-contact button:hover
   {
     background: transparent;
     border: 2px solid #F9004D;

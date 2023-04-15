@@ -30,7 +30,6 @@ export class Footer extends Component {
                   </li>
                 </ul>
               </div>
-
               <div className="footer-nav">
                 <h4>Navigation</h4>
                 <ul>
