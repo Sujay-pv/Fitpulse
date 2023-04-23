@@ -9,18 +9,14 @@ const createUser = require("./createUser");
 const createBooking = require("./createBooking");
 const cookieparser = require("cookie-parser");
 const usermodel = require("./createUser");
-
-<<<<<<< HEAD
-app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing
-=======
+const auth = require("./middleware/auth");
 
 //test
 
 const blockuser = require("./blockuser");
 //test
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing 
->>>>>>> eb181456b5897ef49e1d99ee3d916bbc8f0dffe8
+app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //Cross-origin resource sharing
 app.use(cookieparser());
 
 const authToken = "aa8c5445962df94338499e6897f0ed5b"; // my Auth Token from www.twilio.com/console
@@ -98,7 +94,10 @@ app.post("/sendotplogin", async (req, res) => {
   //console.log(otp);
   try {
     await postModel.create({ otp, mobileNumber }).then((response) => {
+      // db.eventlog.createIndex( { "lastModifiedDate": 1 }, { expireAfterSeconds: 3600 } )
+
       sendOTP(otp, mobileNumber);
+
       res.json({ mesg: "OTP sent successfully", id: response.id });
     });
   } catch (error) {
@@ -124,19 +123,13 @@ app.post("/verifyotplogin", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-=======
-
-
-
-
 //test
 app.post("/blockuser", async (req, res) => {
   console.log("block User called");
-  const {email} = req.body;
+  const { email } = req.body;
   console.log(email);
   try {
-    await blockuser.create({email}).then(
+    await blockuser.create({ email }).then(
       (response) => {
         res.json({ status: "ok", message: "Successfully blocked user" });
       },
@@ -150,10 +143,6 @@ app.post("/blockuser", async (req, res) => {
 });
 //test
 
-
-
-
->>>>>>> eb181456b5897ef49e1d99ee3d916bbc8f0dffe8
 app.post("/forgotpassword", async (req, res) => {
   const { email } = req.body;
   // const otp = Math.floor(1000 + Math.random() * 9000);
@@ -379,14 +368,22 @@ app.post("/verifydatabooking", async (req, res) => {
 }*/
 
 app.get("/getcookie", (req, res) => {
-  const token = req.cookies;
-  res.json(token);
+  const token = req.cookies.tokens;
+  console.log(token);
+  if (token != null) {
+    res.json(token);
+  } else {
+    res.json(null);
+  }
 });
 app.get("/logout", (req, res) => {
   res.clearCookie("tokens");
   res.send("cookie cleared");
 });
+// app.get("/BookingPagelogincheck", auth, (req, res) => {
+//   // res.render("BookingPage");
 
+// });
 app.listen(3007, () => {
   console.log("App listening to 3007");
 });
