@@ -20,10 +20,6 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showOTPField, setShowOTPField] = useState(false);
   const [otpResponse, setOtpResponse] = useState(false);
-<<<<<<< HEAD
-  // const counter = React.useRef(59);
-=======
->>>>>>> e2da36568ba4a01f784ba430c813d93a6c259180
  
 //test
   const [count,setCount] = useState(1);
