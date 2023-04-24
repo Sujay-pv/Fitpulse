@@ -392,7 +392,7 @@ app.get("/getcookie", (req, res) => {
   if (token != null) {
     res.json(token);
   } else {
-    res.json(null);
+    res.json(null); 
   }
 });
 app.get("/logout", (req, res) => {
